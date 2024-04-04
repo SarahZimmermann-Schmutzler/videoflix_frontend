@@ -22,8 +22,8 @@
     padding-top: 12px;
 
     @media(max-width: 1279px) {
-        padding-left: 50px;
-        padding-right: 50px;
+        padding-left: 40px;
+        padding-right: 40px;
     }
 
     span {
@@ -48,14 +48,13 @@
         color: white;
         font-size: 18px;
         border: none;
-        border-radius: 5px;
+        border-radius: 3px;
         padding: 8px 12px 8px 12px;
         cursor: pointer;
         transition: 0.3s ease-in-out;
 
         &:hover {
             background-color: #9D070E;
-
         }
     }
 }
@@ -71,8 +70,8 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding-left: 50px;
-    padding-right: 50px;
+    padding-left: 40px;
+    padding-right: 40px;
 
     span {
         color: white;
@@ -82,11 +81,65 @@
 
     form {
         display: flex;
+        justify-content: center;
+        align-items: center;
+
+        input {
+            width: 300px;
+            border-radius: 3px;
+            border-style: inset;
+            border-width: 1px;
+            border-color:  rgba(255, 255, 255, 0.3);
+            background-color: rgba(0, 0, 0, 0.1);
+            color: white;
+            outline: none;
+            padding: 10px;
+
+            &:focus {
+                border-color: white;
+            }
+
+            &::placeholder {
+                color:  rgba(255, 255, 255, 0.7);
+                font-weight: 500;
+                font-size: 16px;
+            }
+
+            @media(max-width: 419px) {
+                width: 240px;
+            }
+        }
+
+        button {
+            background-color: #E50914;
+            color: white;
+            font-size: 18px;
+            font-weight: 600;
+            border: none;
+            border-radius: 3px;
+            padding: 10px 15px 10px 15px;
+            cursor: pointer;
+            transition: 0.3s ease-in-out;
+            margin-left: 8px;
+
+            &:hover {
+                background-color: #9D070E;
+            }
+
+            @media(max-width: 565px) {
+                margin-top: 20px;
+                width: 150px;
+            }
+        }
+
+        @media(max-width: 565px) {
+            flex-direction: column;
+        }
     }
 }
 
 .content-text-1 {
-    font-size: 46px; 
+    font-size: 46px;
     font-weight: 800;
 
     @media(max-width: 959px) {
