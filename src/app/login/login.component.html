@@ -1,24 +1,32 @@
-<div class="login-page-container" [style.background-image]="'radial-gradient(ellipse at center, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 1.9) 100%), url(./assets/img/login_bg.jpg)'">
+<div class="login-page-container"
+    [style.background-image]="'radial-gradient(ellipse at center, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 1.9) 100%), url(./assets/img/login_bg.jpg)'">
     <div class="login-header-container">
         <img src="./assets/img/login_logo.png">
-        <button>Einloggen</button>
+        <!-- <button>Einloggen</button> -->
     </div>
 
     <div class="login-content-container">
-        <span class="content-text-1">Unbegrenzt Filme, Serien und mehr</span>
-        <span class="content-text-2">Genießen Sie Videoflix, wo immer Sie möchten.</span>
-        <span class="content-text-3">Sie sind startklar? Geben Sie Ihre E-Mail-Adresse ein, um Ihre Registrierung zu beginnen.</span>
         <form>
+            <div class="login-content-text-1">
+                <span>Einloggen</span>
+            </div>
             <input placeholder="E-Mail-Adresse">
-            <button>Loslegen &nbsp; ></button>
+            <input placeholder="Passwort">
+            <button>Einloggen</button>
+            <a class="login-content-text-2">Passwort vergessen?</a>
+            <div class="login-checkbox-container">
+                <input type="checkbox" id="userdata">
+                <label for="userdata">Benutzerdaten merken</label>
+            </div>
+            <span>Neu bei Videoflix?<span>Jetzt registrieren</span></span>
         </form>
     </div>
 
     <div class="login-footer-container">
-        <a href="#">Impressum</a>
+        <a routerLink="/legal">Impressum</a>
         <span>|</span>
         <a routerLink="/data">Datenschutz</a>
         <span>|</span>
-        <a href="#">Konto</a>
+        <a routerLink="/login">Konto</a>
     </div>
 </div>

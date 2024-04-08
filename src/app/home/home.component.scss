@@ -1,4 +1,4 @@
-.login-page-container {
+.home-page-container {
     width: 100%;
     height: 100vh;
     display: flex;
@@ -9,7 +9,7 @@
 
 
 // HEADER
-.login-header-container {
+.home-header-container {
     box-sizing: border-box;
     position: absolute;
     top: 0;
@@ -58,11 +58,11 @@
 
 
 // CONTENT
-.login-content-container {
+.home-content-container {
     box-sizing: border-box;
     position: absolute;
     top: 100px;
-    bottom: 200px;
+    bottom: 150px;
     right: 0;
     left: 0;
     display: flex;
@@ -165,7 +165,7 @@
 
 
 // FOOTER
-.login-footer-container {
+.home-footer-container {
     box-sizing: border-box;
     position: absolute;
     bottom: 0;
@@ -174,7 +174,8 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 200px;
+    height: 150px;
+    background-color: rgba(0, 0, 0, 0.4);
 
     a {
         color: rgba(255, 255, 255, 0.7);
