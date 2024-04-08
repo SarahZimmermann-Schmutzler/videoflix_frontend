@@ -166,6 +166,12 @@
 
 .login-content-text-2 {
     margin-bottom: 30px;
+    cursor: pointer;
+
+    &:hover {
+        text-decoration: underline;
+        color:rgba(255, 255, 255, 0.5);
+    }
     // font-size: 25px;
 
     // @media(max-width: 959px) {
@@ -173,11 +179,31 @@
     // }
 }
 
-.content-text-3 {
-    font-size: 18px;
+.login-content-text-3 {
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
 
-    @media(max-width: 959px) {
-        font-size: 16px;
+    span {
+        &:first-child {
+            margin-right: 8px;
+            color: rgba(255, 255, 255, 0.5);
+        }
+    }
+
+    // font-size: 18px;
+
+    // @media(max-width: 959px) {
+    //     font-size: 16px;
+    // }
+}
+
+.login-link-register {
+    cursor: pointer;
+
+    &:hover {
+        text-decoration: underline;
     }
 }
 
