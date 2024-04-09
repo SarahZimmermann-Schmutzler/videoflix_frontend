@@ -1,13 +1,12 @@
 .login-page-container {
     width: 100%;
-    height: 100vh;
     display: flex;
-    box-sizing: border-box;
+    flex-direction: column;
     background-position: center;
     background-size: cover;
+    background-repeat: repeat;
 
     @media(max-width: 599px) {
-        background-color: black;
         background-image: none !important;
     }
 }
@@ -16,17 +15,12 @@
 // HEADER
 .login-header-container {
     box-sizing: border-box;
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
     display: flex;
     justify-content: space-between;
     align-items: center;
     height: 100px;
     padding-left: 200px;
     padding-right: 200px;
-    padding-top: 12px;
 
     @media(max-width: 1279px) {
         padding-left: 40px;
@@ -34,7 +28,6 @@
     }
 
     img {
-
         @media(max-width: 959px) {
             width: 200px;
         }
@@ -42,7 +35,6 @@
         @media(max-width: 419px) {
             width: 150px;
         }
-
     }
 }
 
@@ -50,22 +42,19 @@
 // CONTENT
 .login-content-container {
     box-sizing: border-box;
-    position: absolute;
-    top: 100px;
-    bottom: 150px;
-    right: 0;
-    left: 0;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    margin-top: 50px;
+    margin-bottom: 120px;
     padding-left: 40px;
     padding-right: 40px;
 
     form {
         width: 450px;
         box-sizing: border-box;
-        background-color: rgba(0, 0, 0, 0.4);
+        background-color: rgba(0, 0, 0, 0.6);
         border-radius: 3px;
         padding: 60px 60px 60px 60px;
         display: flex;
@@ -201,10 +190,6 @@
 // FOOTER
 .login-footer-container {
     box-sizing: border-box;
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -229,9 +214,5 @@
 
     span {
         color: rgba(255, 255, 255, 0.7);
-    }
-
-    @media(max-width: 599px) {
-        height: 250px;
     }
 }
