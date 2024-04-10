@@ -2,7 +2,6 @@
     [style.background-image]="'radial-gradient(ellipse at center, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 1.9) 100%), url(./assets/img/login_bg.jpg)'">
     <div class="login-header-container">
         <img src="./assets/img/login_logo.png">
-        <!-- <button>Einloggen</button> -->
     </div>
 
     <div class="login-content-container">
@@ -13,14 +12,14 @@
             <input placeholder="E-Mail-Adresse">
             <input placeholder="Passwort">
             <button>Einloggen</button>
-            <a class="login-content-text-2">Passwort vergessen?</a>
+            <a routerLink="/helpPassword" class="login-content-text-2">Passwort vergessen?</a>
             <div class="login-checkbox-container">
                 <input type="checkbox" id="userdata">
                 <label for="userdata">Benutzerdaten merken</label>
             </div>
             <div class="login-content-text-3">
                 <span>Neu bei Videoflix?</span>
-                <span class="login-link-register">Jetzt registrieren</span>
+                <span routerLink="/" class="login-link-register">Jetzt registrieren</span>
             </div>
         </form>
     </div>

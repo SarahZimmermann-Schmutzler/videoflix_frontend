@@ -77,7 +77,8 @@
             margin-bottom: 16px;
 
             &:focus {
-                border-color: white;
+                outline: 1px solid white;
+                outline-offset: 2px;
             }
 
             &::placeholder {
@@ -139,10 +140,17 @@
 .login-content-text-2 {
     margin-bottom: 30px;
     cursor: pointer;
+    text-decoration: none;
+    color: white;
 
     &:hover {
         text-decoration: underline;
         color:rgba(255, 255, 255, 0.5);
+    }
+
+    &:visited {
+        color: white;
+        text-decoration: none;
     }
 }
 

@@ -7,4 +7,8 @@ import { Component } from '@angular/core';
 })
 export class HomeComponent {
 
+//   if(email != null && email.length > 5){
+//     // Your code...
+// }
+
 }
