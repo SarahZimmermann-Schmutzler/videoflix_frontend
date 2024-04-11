@@ -1,34 +1,27 @@
-<div class="login-page-container"
-    [style.background-image]="'radial-gradient(ellipse at center, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 1.9) 100%), url(./assets/img/login_bg.jpg)'">
-    <div class="login-header-container">
-        <img src="./assets/img/login_logo.png">
-    </div>
+<div class="reg-header-container">
+    <img src="./assets/img/login_logo.png">
+    <button routerLink="/login">Einloggen</button>
+</div>
 
-    <div class="login-content-container">
-        <form>
-            <div class="login-content-text-1">
-                <span>Einloggen</span>
-            </div>
-            <input placeholder="E-Mail-Adresse">
-            <input placeholder="Passwort">
-            <button>Einloggen</button>
-            <a class="login-content-text-2">Passwort vergessen?</a>
-            <div class="login-checkbox-container">
-                <input type="checkbox" id="userdata">
-                <label for="userdata">Benutzerdaten merken</label>
-            </div>
-            <div class="login-content-text-3">
-                <span>Neu bei Videoflix?</span>
-                <span routerLink="/" class="login-link-register">Jetzt registrieren</span>
-            </div>
-        </form>
-    </div>
+<div class="reg-content-container">
+    <form>
+        <div class="reg-content-text-1">
+            <span>Registrierung</span>
+        </div>
 
-    <div class="login-footer-container">
-        <a routerLink="/legal">Impressum</a>
-        <span>|</span>
-        <a routerLink="/data">Datenschutz</a>
-        <span>|</span>
-        <a routerLink="/">Startseite</a>
-    </div>
+        <div class="reg-content-text-2">
+            <span >Erstellen Sie ein Passwort, um sich zu registrieren.</span>
+        </div>
+        <input placeholder="E-Mail-Adresse">
+        <input placeholder="Passwort">
+        <button routerLink="/">Weiter</button>
+    </form>
+</div>
+
+<div class="reg-footer-container">
+    <a routerLink="/legal">Impressum</a>
+    <span>|</span>
+    <a routerLink="/data">Datenschutz</a>
+    <span>|</span>
+    <a routerLink="/">Startseite</a>
 </div>
