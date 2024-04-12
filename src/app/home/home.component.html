@@ -10,9 +10,9 @@
         <span class="content-text-2">Genießen Sie Videoflix, wo immer Sie möchten.</span>
         <span class="content-text-3">Sie sind startklar? Geben Sie Ihre E-Mail-Adresse ein, um Ihre Registrierung zu
             beginnen.</span>
-        <form>
-            <input type="email" placeholder="E-Mail-Adresse">
-            <button routerLink="/register">Loslegen &nbsp; ></button>
+        <form (ngSubmit)="toRegister()">
+            <input type="email" placeholder="E-Mail-Adresse" [(ngModel)]="email" name="email">
+            <button>Loslegen &nbsp; ></button>
         </form>
     </div>
 

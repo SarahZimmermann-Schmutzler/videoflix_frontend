@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
+import { HomeService } from '../services/home.service';
 
 @Component({
   selector: 'app-home',
@@ -7,8 +9,24 @@ import { Component } from '@angular/core';
 })
 export class HomeComponent {
 
-//   if(email != null && email.length > 5){
-//     // Your code...
-// }
+  email = '';
+
+
+  constructor(private router: Router, private service: HomeService) { }
+
+  ngOnInit() {
+    
+  }
+
+  toRegister() {
+    localStorage.setItem('email-adress', this.email);
+    this.service.getSubject(this.email);
+    this.service.myData = this.email;
+    this.router.navigateByUrl('/register');
+  }
+
+  //   if(email != null && email.length > 5){
+  //     // Your code...
+  // }
 
 }

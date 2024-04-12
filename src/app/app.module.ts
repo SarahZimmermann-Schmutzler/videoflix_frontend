@@ -9,6 +9,9 @@ import { HomeComponent } from './home/home.component';
 import { LegalNoticeComponent } from './legal-notice/legal-notice.component';
 import { RegisterComponent } from './register/register.component';
 import { ForgottenPasswordComponent } from './forgotten-password/forgotten-password.component';
+import { FormsModule } from '@angular/forms';
+import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
+import { HomeService } from './services/home.service';
 
 @NgModule({
   declarations: [
@@ -22,7 +25,9 @@ import { ForgottenPasswordComponent } from './forgotten-password/forgotten-passw
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule,
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

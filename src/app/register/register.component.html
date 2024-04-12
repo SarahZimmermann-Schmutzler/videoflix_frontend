@@ -6,15 +6,16 @@
 <div class="reg-content-container">
     <form>
         <div class="reg-content-text-1">
-            <span>Registrierung</span>
+            <span>Registrierung {{service.myData}}</span>
         </div>
 
         <div class="reg-content-text-2">
             <span >Erstellen Sie ein Passwort, um sich zu registrieren.</span>
         </div>
-        <input placeholder="E-Mail-Adresse">
+        <input placeholder="E-Mail-Adresse" [(ngModel)]='email' name="email">
         <input placeholder="Passwort">
         <button routerLink="/">Weiter</button>
+        
     </form>
 </div>
 
