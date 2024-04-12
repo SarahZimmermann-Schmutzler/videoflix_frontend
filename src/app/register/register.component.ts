@@ -14,8 +14,8 @@ export class RegisterComponent {
 
   ngOnInit() {
     let emailFromHome = localStorage.getItem('email-adress');
-    this.email = emailFromHome;
-
+    // this.email = emailFromHome;
+    this.email = this.service.myData;
   }
 
 }
