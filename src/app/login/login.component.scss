@@ -28,6 +28,8 @@
     }
 
     img {
+        cursor: pointer;
+        
         @media(max-width: 959px) {
             width: 200px;
         }

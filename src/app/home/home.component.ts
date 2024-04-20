@@ -19,9 +19,7 @@ export class HomeComponent {
   }
 
   toRegister() {
-    localStorage.setItem('email-adress', this.email);
-    this.service.getSubject(this.email);
-    this.service.myData = this.email;
+    this.service.registerMail = this.email;
     this.router.navigateByUrl('/register');
   }
 

@@ -6,14 +6,8 @@ import { Subject } from 'rxjs';
 })
 export class HomeService {
 
-  hello = new Subject();
-
   constructor() { }
 
-  public myData: string;
-
-  getSubject(data) {
-    this.hello.next(data);
-  }
+  public registerMail: string;
 
 }

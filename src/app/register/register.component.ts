@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { HomeService } from '../services/home.service';
-import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-register',
@@ -13,9 +12,7 @@ export class RegisterComponent {
   constructor(public service: HomeService) { }
 
   ngOnInit() {
-    let emailFromHome = localStorage.getItem('email-adress');
-    // this.email = emailFromHome;
-    this.email = this.service.myData;
+    this.email = this.service.registerMail;
   }
 
 }
