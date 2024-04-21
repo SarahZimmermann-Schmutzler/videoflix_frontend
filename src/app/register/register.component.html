@@ -4,7 +4,7 @@
 </div>
 
 <div class="reg-content-container">
-    <form>
+    <form (ngSubmit)="registerUser()">
         <div class="reg-content-text-1">
             <span>Registrierung</span>
         </div>
@@ -12,10 +12,9 @@
         <div class="reg-content-text-2">
             <span >Erstellen Sie ein Passwort, um sich zu registrieren.</span>
         </div>
-        <input placeholder="E-Mail-Adresse" [(ngModel)]='email' name="email">
-        <input placeholder="Passwort">
-        <button routerLink="/">Weiter</button>
-        
+        <input type="email" placeholder="E-Mail-Adresse" [(ngModel)]='email' name="email" (input)="changeBorderColor($event)" [class.redBorder]="redMailBorder" [class.greenBorder]="greenMailBorder" autocomplete="off">
+        <input type="password" placeholder="Passwort" [(ngModel)]='password' name="password" (input)="changeBorderColor($event)" [class.redBorder]="redPwdBorder" [class.greenBorder]="greenPwdBorder" autocomplete="off">
+        <button [disabled]="disabledButton" [class.disBtn]="disabledButton">Weiter</button>
     </form>
 </div>
 

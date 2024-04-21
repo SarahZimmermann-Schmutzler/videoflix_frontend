@@ -37,10 +37,6 @@ export class HomeComponent {
     }
   }
 
-  hello() {
-
-  }
-
   toRegister() {
     this.service.registerMail = this.email;
     this.router.navigateByUrl('/register');
