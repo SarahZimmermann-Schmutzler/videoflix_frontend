@@ -11,8 +11,8 @@
         <span class="content-text-3">Sie sind startklar? Geben Sie Ihre E-Mail-Adresse ein, um Ihre Registrierung zu
             beginnen.</span>
         <form (ngSubmit)="toRegister()">
-            <input type="email" placeholder="E-Mail-Adresse" [(ngModel)]="email" name="email">
-            <button>Loslegen &nbsp; ></button>
+            <input type="email" placeholder="E-Mail-Adresse" [(ngModel)]="email" name="email" (input)="changeBorderColor($event)" [class.redBorder]="redBorder" [class.greenBorder]="greenBorder" autocomplete="off">
+            <button [disabled]="disabledButton" [class.disBtn]="disabledButton">Loslegen &nbsp; ></button>
         </form>
     </div>
 
