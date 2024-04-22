@@ -5,12 +5,12 @@
     </div>
 
     <div class="login-content-container">
-        <form>
+        <form (ngSubmit)="login()">
             <div class="login-content-text-1">
                 <span>Einloggen</span>
             </div>
-            <input placeholder="E-Mail-Adresse">
-            <input placeholder="Passwort">
+            <input type="email" placeholder="E-Mail-Adresse" [(ngModel)]="username" name="username" autocomplete="off">
+            <input type="password" placeholder="Passwort" [(ngModel)]="password" name="password">
             <button>Einloggen</button>
             <a routerLink="/helpPassword" class="login-content-text-2">Passwort vergessen?</a>
             <div class="login-checkbox-container">
