@@ -21,4 +21,16 @@ export class AuthService {
     return lastValueFrom(this.http.post(url, body));
     // lastValueFrom wandelt es in Promise um
   }
+
+
+  public register(username:string, password:string, email:string) {
+    const url = environment.baseURL + '/register/';
+    const body = {
+      'username': username,
+      'password': password,
+      'email': email
+    }
+    return lastValueFrom(this.http.post(url, body));
+    // lastValueFrom wandelt es in Promise um
+  }
 }

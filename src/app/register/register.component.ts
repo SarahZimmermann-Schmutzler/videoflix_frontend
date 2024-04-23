@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { HomeService } from '../services/home.service';
+import { AuthService } from '../services/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-register',
@@ -9,13 +11,18 @@ import { HomeService } from '../services/home.service';
 export class RegisterComponent {
   email = '';
   password = '';
+  username = '';
   redMailBorder = false;
   greenMailBorder = false;
   redPwdBorder = false;
   greenPwdBorder = false;
   disabledButton = true;
 
-  constructor(public service: HomeService) { }
+  constructor(
+    public service: HomeService, 
+    public authservice: AuthService,
+    private router: Router,) { }
+
 
   ngOnInit() {
     this.email = this.service.registerMail;
@@ -55,8 +62,24 @@ export class RegisterComponent {
     }
   }
 
-  registerUser() {
-    console.log('email', this.email);
+  // registerUser() {
+  //   console.log('email', this.email);
+    
+  // }
+
+  // registers new user
+  async registerUser() {
+    let partBeforeAt = this.email.split('@');
+    this.username = partBeforeAt[0];
+    try{
+      let resp: any = await this.authservice.register(this.username, this.password, this.email)
+      // authService siehe services ist Schnittstelle zum Backend
+      this.router.navigateByUrl('/login').then(() => {
+        window.location.reload();
+      });
+    } catch(e) {
+      console.error(e);
+    }
   }
 
 }
