@@ -16,6 +16,7 @@ export class LoginComponent {
   redPwdBorder = false;
   normalPwdBorder = false;
   disabledButton = true;
+  wrongPwd = false;
 
   constructor(private authservice: AuthService, private router: Router) { }
 
@@ -34,8 +35,9 @@ export class LoginComponent {
       //   window.location.reload();
       // });
     } catch (e) {
-      console.error(e);
+      // console.error(e);
       // window.location.reload();
+      this.wrongPwd = true;
     }
   }
 

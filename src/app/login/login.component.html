@@ -9,6 +9,12 @@
             <div class="login-content-text-1">
                 <span>Einloggen</span>
             </div>
+
+            <div class="wrong-pwd" [class.d-none]="!wrongPwd">
+                <div>Falsches Passwort für {{this.email}}</div><br>
+                <span>Sie können Ihr Passwort zurücksetzen oder es erneut versuchen.</span>
+            </div>
+
             <input type="email" placeholder="E-Mail-Adresse" [(ngModel)]="email" name="email" (input)="changeBorderColorMail($event)" [class.redBorder]="redMailBorder" autocomplete="off">
             <input type="password" placeholder="Passwort" [(ngModel)]="password" name="password" (input)="changeBorderColorPwd($event)" [class.redBorder]="redPwdBorder" autocomplete="off">
             <button [disabled]="disabledButton" [class.disBtn]="disabledButton">Einloggen</button>

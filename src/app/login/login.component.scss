@@ -202,6 +202,22 @@
     }
 }
 
+.wrong-pwd {
+    background-color: #D89D31;
+    border-radius: 3px;
+    color: black;
+    padding: 12px 12px 12px 12px;
+    margin-bottom: 35px;
+
+    div {
+        margin-bottom: -10px;
+        font-weight: bold;
+    }
+}
+
+.d-none {
+    display: none;
+}
 
 // FOOTER
 .login-footer-container {
