@@ -69,9 +69,7 @@
             width: 93%;
             height: 30px;
             border-radius: 3px;
-            border-style: inset;
-            border-width: 1px;
-            border-color: rgba(255, 255, 255, 0.3);
+            border: 1.5px solid rgba(255, 255, 255, 0.3);
             background-color: rgba(0, 0, 0, 0.1);
             color: white;
             outline: none;
@@ -80,7 +78,7 @@
 
             &:focus {
                 outline: 1px solid white;
-                outline-offset: 2px;
+                outline-offset: 3px;
             }
 
             &::placeholder {

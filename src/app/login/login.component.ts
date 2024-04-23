@@ -12,7 +12,9 @@ export class LoginComponent {
   password = '';
   email = '';
   redMailBorder = false;
+  normalMailBorder = false;
   redPwdBorder = false;
+  normalPwdBorder = false;
   disabledButton = true;
 
   constructor(private authservice: AuthService, private router: Router) { }
@@ -39,7 +41,7 @@ export class LoginComponent {
 
   watchForm() {
     setInterval(() => {
-      if (this.redMailBorder == false && this.redPwdBorder == false) {
+      if (this.normalMailBorder == true && this.normalPwdBorder == true && this.redMailBorder == false && this.redPwdBorder == false) {
         this.disabledButton = false;
       } else {
         this.disabledButton = true;
@@ -47,22 +49,31 @@ export class LoginComponent {
     }, 500);
   }
 
-  changeBorderColor(event) {
+  changeBorderColorMail(event) {
     if (event.isTrusted == true) {
       this.redMailBorder = true;
-      this.redPwdBorder = true;
     }
 
     if (this.email.includes("@") && this.email.includes(".")) {
       this.redMailBorder = false;
+      this.normalMailBorder = true;
     } else {
       this.redMailBorder = true;
+      this.normalMailBorder = false;
+    }
+  }
+
+  changeBorderColorPwd(event) {
+    if (event.isTrusted == true) {
+      this.redPwdBorder = true;
     }
 
     if (this.password.length > 7) {
       this.redPwdBorder = false;
+      this.normalPwdBorder = true;
     } else {
       this.redPwdBorder = true;
+      this.normalPwdBorder = false;
     }
   }
 }

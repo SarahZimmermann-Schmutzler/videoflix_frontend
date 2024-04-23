@@ -70,14 +70,14 @@
             width: 93%;
             height: 30px;
             border-radius: 3px;
-            border: 1px solid rgba(0, 0, 0, 0.5);
+            border: 1.5px solid rgba(0, 0, 0, 0.5);
             outline: none;
             padding: 10px;
             margin-bottom: 16px;
 
             &:focus {
                 outline: 2px solid black;
-                outline-offset: 2px;
+                outline-offset: 3px;
             }
 
             &::placeholder {

@@ -9,8 +9,8 @@
             <div class="login-content-text-1">
                 <span>Einloggen</span>
             </div>
-            <input type="email" placeholder="E-Mail-Adresse" [(ngModel)]="email" name="email" (input)="changeBorderColor($event)" [class.redBorder]="redMailBorder" autocomplete="off">
-            <input type="password" placeholder="Passwort" [(ngModel)]="password" name="password" (input)="changeBorderColor($event)" [class.redBorder]="redPwdBorder" autocomplete="off">
+            <input type="email" placeholder="E-Mail-Adresse" [(ngModel)]="email" name="email" (input)="changeBorderColorMail($event)" [class.redBorder]="redMailBorder" autocomplete="off">
+            <input type="password" placeholder="Passwort" [(ngModel)]="password" name="password" (input)="changeBorderColorPwd($event)" [class.redBorder]="redPwdBorder" autocomplete="off">
             <button [disabled]="disabledButton" [class.disBtn]="disabledButton">Einloggen</button>
             <a routerLink="/helpPassword" class="login-content-text-2">Passwort vergessen?</a>
             <div class="login-checkbox-container">
