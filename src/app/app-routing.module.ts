@@ -6,12 +6,14 @@ import { HomeComponent } from './home/home.component';
 import { LegalNoticeComponent } from './legal-notice/legal-notice.component';
 import { RegisterComponent } from './register/register.component';
 import { ForgottenPasswordComponent } from './forgotten-password/forgotten-password.component';
+import { PasswordResetComponent } from './password-reset/password-reset.component';
 
 const routes: Routes = [
   {path: '', redirectTo: 'home', pathMatch: 'full'},
   {path: 'home', component:HomeComponent},
   {path: 'login', component:LoginComponent},
   {path: 'register', component:RegisterComponent},
+  {path: 'resetPassword', component:PasswordResetComponent},
   {path: 'helpPassword', component:ForgottenPasswordComponent},
   {path: 'data', component:DataProtectionComponent},
   {path: 'legal', component:LegalNoticeComponent},
