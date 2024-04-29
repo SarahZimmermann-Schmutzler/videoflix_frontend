@@ -13,6 +13,7 @@ import { FormsModule } from '@angular/forms';
 import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import { AuthInterceptorService } from './services/auth-interceptor.service';
 import { PasswordResetComponent } from './password-reset/password-reset.component';
+import { ActivateAccountComponent } from './activate-account/activate-account.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { PasswordResetComponent } from './password-reset/password-reset.componen
     LegalNoticeComponent,
     RegisterComponent,
     ForgottenPasswordComponent,
-    PasswordResetComponent
+    PasswordResetComponent,
+    ActivateAccountComponent
   ],
   imports: [
     BrowserModule,

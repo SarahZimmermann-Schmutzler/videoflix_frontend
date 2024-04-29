@@ -33,4 +33,12 @@ export class AuthService {
     return lastValueFrom(this.http.post(url, body));
     // lastValueFrom wandelt es in Promise um
   }
+
+  public activateAccount(decoded_pk) {
+    const url = environment.baseURL+ '/account_activation/';
+    const body = {
+      'decoded_pk': decoded_pk,
+    }
+    return lastValueFrom(this.http.patch(url, body));
+  }
 }

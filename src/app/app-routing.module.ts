@@ -7,6 +7,7 @@ import { LegalNoticeComponent } from './legal-notice/legal-notice.component';
 import { RegisterComponent } from './register/register.component';
 import { ForgottenPasswordComponent } from './forgotten-password/forgotten-password.component';
 import { PasswordResetComponent } from './password-reset/password-reset.component';
+import { ActivateAccountComponent } from './activate-account/activate-account.component';
 
 const routes: Routes = [
   {path: '', redirectTo: 'home', pathMatch: 'full'},
@@ -15,6 +16,7 @@ const routes: Routes = [
   {path: 'register', component:RegisterComponent},
   {path: 'resetPassword', component:PasswordResetComponent},
   {path: 'helpPassword', component:ForgottenPasswordComponent},
+  {path: 'activateAccount/:encoded_pk', component:ActivateAccountComponent},
   {path: 'data', component:DataProtectionComponent},
   {path: 'legal', component:LegalNoticeComponent},
 ];
