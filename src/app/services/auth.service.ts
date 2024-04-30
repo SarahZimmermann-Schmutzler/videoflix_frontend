@@ -34,10 +34,28 @@ export class AuthService {
     // lastValueFrom wandelt es in Promise um
   }
 
+  
   public activateAccount(decoded_pk) {
     const url = environment.baseURL+ '/account_activation/';
     const body = {
       'decoded_pk': decoded_pk,
+    }
+    return lastValueFrom(this.http.patch(url, body));
+  }
+
+  public forgottenPassword(email:string) {
+    const url = environment.baseURL + '/forgotten_password/';
+    const body = {
+      'email': email
+    }
+    return lastValueFrom(this.http.post(url, body));
+  }
+
+  public passwordReset(decoded_pk, new_password) {
+    const url = environment.baseURL+ '/reset_password/';
+    const body = {
+      'decoded_pk': decoded_pk,
+      'new_password': new_password
     }
     return lastValueFrom(this.http.patch(url, body));
   }

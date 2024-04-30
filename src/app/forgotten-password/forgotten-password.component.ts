@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { AuthService } from '../services/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-forgotten-password',
@@ -11,7 +13,11 @@ export class ForgottenPasswordComponent {
   normalMailBorder = false;
   disabledButton = true;
 
-  ngOnInit() {
+  constructor(
+    public authservice: AuthService,
+    private router: Router,) { }
+  
+    ngOnInit() {
     this.watchForm();
   } 
 
@@ -25,8 +31,15 @@ export class ForgottenPasswordComponent {
     }, 500);
   }
 
-  sendMail() {
-    console.log('hi')
+  async sendMail() {
+    try{
+      let resp: any = await this.authservice.forgottenPassword(this.email)
+      // this.router.navigateByUrl('/login').then(() => {
+      //   window.location.reload();
+      // });
+    } catch(e) {
+      console.error(e);
+    }
   }
 
   changeBorderColorMail(event) {

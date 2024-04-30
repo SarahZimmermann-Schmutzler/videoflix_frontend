@@ -25,13 +25,13 @@ export class ActivateAccountComponent {
       let resp = await this.authservice.activateAccount(
         this.decoded_pk
       );
-      this.getToLogin();
+      this.goToLogin();
     } catch (e) {
       console.error(e);
     }
   }
 
-  getToLogin() {
+  goToLogin() {
     this.router.navigateByUrl('/login')
   }
 

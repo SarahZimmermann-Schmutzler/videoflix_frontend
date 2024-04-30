@@ -14,7 +14,7 @@ const routes: Routes = [
   {path: 'home', component:HomeComponent},
   {path: 'login', component:LoginComponent},
   {path: 'register', component:RegisterComponent},
-  {path: 'resetPassword', component:PasswordResetComponent},
+  {path: 'resetPassword/:encoded_pk', component:PasswordResetComponent},
   {path: 'helpPassword', component:ForgottenPasswordComponent},
   {path: 'activateAccount/:encoded_pk', component:ActivateAccountComponent},
   {path: 'data', component:DataProtectionComponent},
