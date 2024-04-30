@@ -8,12 +8,14 @@ import { RegisterComponent } from './register/register.component';
 import { ForgottenPasswordComponent } from './forgotten-password/forgotten-password.component';
 import { PasswordResetComponent } from './password-reset/password-reset.component';
 import { ActivateAccountComponent } from './activate-account/activate-account.component';
+import { RegisterSuccessComponent } from './register-success/register-success.component';
 
 const routes: Routes = [
   {path: '', redirectTo: 'home', pathMatch: 'full'},
   {path: 'home', component:HomeComponent},
   {path: 'login', component:LoginComponent},
   {path: 'register', component:RegisterComponent},
+  {path: 'registerSucess', component:RegisterSuccessComponent},
   {path: 'resetPassword/:encoded_pk', component:PasswordResetComponent},
   {path: 'helpPassword', component:ForgottenPasswordComponent},
   {path: 'activateAccount/:encoded_pk', component:ActivateAccountComponent},
