@@ -2,7 +2,6 @@ import { Component } from '@angular/core';
 import { HomeService } from '../services/home.service';
 import { AuthService } from '../services/auth.service';
 import { Router } from '@angular/router';
-import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-register',
@@ -18,6 +17,8 @@ export class RegisterComponent {
   redPwdBorder = false;
   greenPwdBorder = false;
   disabledButton = true;
+  sthWrong = false;
+  success = false;
 
   constructor(
     public service: HomeService, 
@@ -69,13 +70,10 @@ export class RegisterComponent {
     let partBeforeAt = this.email.split('@');
     this.username = partBeforeAt[0];
     try{
-      let resp: any = await this.authservice.register(this.username, this.password, this.email)
-      // authService siehe services ist Schnittstelle zum Backend
-      this.router.navigateByUrl('/registerSuccess').then(() => {
-        window.location.reload();
-      });
+      let resp: any = await this.authservice.register(this.username, this.password, this.email);
+      this.success = true;
     } catch(e) {
-      console.error(e);
+      this.sthWrong = true;
     }
   }
 

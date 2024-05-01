@@ -12,6 +12,8 @@ export class ForgottenPasswordComponent {
   redMailBorder = false;
   normalMailBorder = false;
   disabledButton = true;
+  sthWrong = false;
+  success = false;
 
   constructor(
     public authservice: AuthService,
@@ -37,8 +39,10 @@ export class ForgottenPasswordComponent {
       // this.router.navigateByUrl('/login').then(() => {
       //   window.location.reload();
       // });
+      this.success = true;
     } catch(e) {
-      console.error(e);
+      // console.error(e);
+      this.sthWrong = true;
     }
   }
 

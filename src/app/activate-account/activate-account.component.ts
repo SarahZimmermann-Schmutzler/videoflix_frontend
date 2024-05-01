@@ -10,6 +10,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 export class ActivateAccountComponent {
   decoded_pk = '';
   encoded_pk='';
+  sthWrong = false;
 
   constructor(private authservice: AuthService, private router: Router, public route:ActivatedRoute) { }
 
@@ -27,7 +28,8 @@ export class ActivateAccountComponent {
       );
       this.goToLogin();
     } catch (e) {
-      console.error(e);
+      // console.error(e);
+      this.sthWrong = true;
     }
   }
 

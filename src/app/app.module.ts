@@ -14,7 +14,6 @@ import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import { AuthInterceptorService } from './services/auth-interceptor.service';
 import { PasswordResetComponent } from './password-reset/password-reset.component';
 import { ActivateAccountComponent } from './activate-account/activate-account.component';
-import { RegisterSuccessComponent } from './register-success/register-success.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +26,6 @@ import { RegisterSuccessComponent } from './register-success/register-success.co
     ForgottenPasswordComponent,
     PasswordResetComponent,
     ActivateAccountComponent,
-    RegisterSuccessComponent
   ],
   imports: [
     BrowserModule,

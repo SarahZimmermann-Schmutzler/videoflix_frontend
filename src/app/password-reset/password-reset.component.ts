@@ -13,12 +13,13 @@ export class PasswordResetComponent {
   passwordTwo = '';
   encoded_pk = '';
   decoded_pk = '';
-  // token = '';
   redPwdTwoBorder = false;
   redPwdOneBorder = false;
   greenPwdBorder = false;
   normalPwdBorder = false;
   disabledButton = true;
+  sthWrong = false;
+  success = false;
 
   constructor(
     private authservice: AuthService, 
@@ -44,14 +45,10 @@ export class PasswordResetComponent {
     }, 500);
   }
 
-  // sendMail() {
-  //   console.log('hi')
-  // }
 
   async resetPassword() {
     this.encoded_pk = this.route.snapshot.paramMap.get('encoded_pk');
     this.decoded_pk = atob(this.encoded_pk);
-    // this.token = this.route.snapshot.paramMap.get('token');
 
   
     try {
@@ -59,9 +56,13 @@ export class PasswordResetComponent {
         this.decoded_pk,
         this.passwordTwo
       );
-      this.goToLogin();
+      this.success = true;
+      setTimeout(() => {
+        this.goToLogin()
+      }, 2000);
     } catch (e) {
-      console.error(e);
+      // console.error(e);
+      this.sthWrong = true;
     }
   }
 

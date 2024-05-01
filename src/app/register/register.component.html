@@ -9,6 +9,16 @@
             <span>Registrierung</span>
         </div>
 
+        <div class="info" [class.d-none]="!sthWrong">
+            <div>Registrierung war nicht erfolgreich.</div><br>
+            <span>Versuchen Sie es erneut oder kontaktieren Sie den Support:sarah.zimmermannschmutzler@gmail.com</span>
+        </div>
+
+        <div class="info" [class.d-none]="!success">
+            <div>Registrierung war erfolgreich.</div><br>
+            <span>Bitte aktivieren Sie Ihren Account über den Link, den wir Ihnen per zugesendet haben. Diese Seite können Sie schließen.</span>
+        </div>
+
         <div class="reg-content-text-2">
             <span >Erstellen Sie ein Passwort, um sich zu registrieren.</span>
         </div>
