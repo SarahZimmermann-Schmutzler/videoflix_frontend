@@ -20,7 +20,7 @@
             <button [disabled]="disabledButton" [class.disBtn]="disabledButton">Einloggen</button>
             <a routerLink="/helpPassword" class="login-content-text-2">Passwort vergessen?</a>
             <div class="login-checkbox-container">
-                <input type="checkbox" id="userdata">
+                <input type="checkbox" id="userdata" (change)="rememberMe($event)" [checked]="isChecked">
                 <label for="userdata">Benutzerdaten merken</label>
             </div>
             <div class="login-content-text-3">

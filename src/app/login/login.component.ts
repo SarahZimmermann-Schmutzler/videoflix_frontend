@@ -17,11 +17,13 @@ export class LoginComponent {
   normalPwdBorder = false;
   disabledButton = true;
   wrongPwd = false;
+  isChecked = false;
 
   constructor(private authservice: AuthService, private router: Router) { }
 
   ngOnInit() {
     this.watchForm();
+    this.userDataInStorage();
   }
 
   async login() {
@@ -76,6 +78,35 @@ export class LoginComponent {
     } else {
       this.redPwdBorder = true;
       this.normalPwdBorder = false;
+    }
+  }
+
+  rememberMe(event) {
+    if(event.target.checked == true && this.email != '' && this.password != '') {
+      localStorage.setItem('email', this.email);
+      localStorage.setItem('password', this.password);
+    } 
+    
+    if (event.target.checked == false) {
+      localStorage.removeItem('email');
+      localStorage.removeItem('password');
+    }
+  }
+
+  userDataInStorage(){
+    let rememberedMail = localStorage.getItem('email');
+    let rememberedPwd = localStorage.getItem('password');
+
+    if (rememberedMail != '' && rememberedPwd != '') {
+      this.isChecked = true;
+      this.email = rememberedMail;
+      this.password = rememberedPwd;
+    }
+    
+    if(rememberedMail == null || rememberedPwd == null) {
+      this.email = '';
+      this.password = '';
+      this.isChecked = false;
     }
   }
 }
