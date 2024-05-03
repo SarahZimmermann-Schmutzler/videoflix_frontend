@@ -32,8 +32,10 @@ export class LoginComponent {
     try {
       let resp = await this.authservice.loginWithUserAndPassword(this.username, this.password);
       localStorage.setItem('token', resp['token'])
-      console.log('Erfolgreich')
-      // this.router.navigateByUrl('/boards').then(() => {
+      // console.log('Erfolgreich')
+      this.router.navigateByUrl('/videos');
+      
+      // .then(() => {
       //   window.location.reload();
       // });
     } catch (e) {

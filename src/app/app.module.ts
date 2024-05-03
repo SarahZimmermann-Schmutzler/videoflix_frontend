@@ -14,6 +14,7 @@ import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import { AuthInterceptorService } from './services/auth-interceptor.service';
 import { PasswordResetComponent } from './password-reset/password-reset.component';
 import { ActivateAccountComponent } from './activate-account/activate-account.component';
+import { VideosComponent } from './videos/videos.component';
 
 @NgModule({
   declarations: [
@@ -26,6 +27,7 @@ import { ActivateAccountComponent } from './activate-account/activate-account.co
     ForgottenPasswordComponent,
     PasswordResetComponent,
     ActivateAccountComponent,
+    VideosComponent,
   ],
   imports: [
     BrowserModule,

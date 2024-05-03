@@ -8,6 +8,7 @@ import { RegisterComponent } from './register/register.component';
 import { ForgottenPasswordComponent } from './forgotten-password/forgotten-password.component';
 import { PasswordResetComponent } from './password-reset/password-reset.component';
 import { ActivateAccountComponent } from './activate-account/activate-account.component';
+import { VideosComponent } from './videos/videos.component';
 
 
 const routes: Routes = [
@@ -20,6 +21,7 @@ const routes: Routes = [
   {path: 'activateAccount/:encoded_pk', component:ActivateAccountComponent},
   {path: 'data', component:DataProtectionComponent},
   {path: 'legal', component:LegalNoticeComponent},
+  {path: 'videos', component:VideosComponent},
 ];
 
 @NgModule({
