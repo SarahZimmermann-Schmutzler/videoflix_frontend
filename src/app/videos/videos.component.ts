@@ -7,15 +7,6 @@ import { Router } from '@angular/router';
   styleUrls: ['./videos.component.scss']
 })
 export class VideosComponent {
-  isClicked = false;
 
-  constructor(private router: Router) {}
-
-  navStart() {
-    this.router.navigateByUrl('/videos');
-  }
-
-  navVid() {
-    this.router.navigateByUrl('/video-detail');
-  }
+  constructor() {}
 }
