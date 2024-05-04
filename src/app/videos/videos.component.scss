@@ -83,3 +83,17 @@
         cursor: pointer;
     }
 }
+
+.vid-header-menu {
+    position: absolute;
+    top: 70px;
+    right: 50px;
+    background-color: green;
+    height: 50px;
+    width: 200px;
+    color: white;
+    font-size: 18px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

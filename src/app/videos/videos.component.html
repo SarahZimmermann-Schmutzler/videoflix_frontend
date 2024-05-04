@@ -10,7 +10,11 @@
     <div class="vid-header-content-right">
         <img class="vid-header-search" src="./assets/img/vid_search.png">
         <div class="vid-header-logo-container">
-            <img src="./assets/img/vid_logo.png">
+            <img src="./assets/img/vid_logo.png" (mouseover)="showMenu=true" (mouseout)="hideLogoutMenu()">
         </div>
+    </div>
+
+    <div class="vid-header-menu" *ngIf="showMenu" (mouseover)="showLogoutMenu()" (mouseout)="!showMenu">
+            <div>Logout</div> 
     </div>
 </div>
