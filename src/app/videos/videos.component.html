@@ -14,13 +14,14 @@
         </div>
     </div>
 
-    <div class="vid-header-menu" *ngIf="showMenu || showAlsoMenu" (mouseover)="showAlsoMenu=true" (mouseout)="showAlsoMenu=false">
-        <div>Logout</div> 
+    <div class="vid-header-menu" *ngIf="showMenu || showAlsoMenu" (mouseover)="showAlsoMenu=true"
+        (mouseout)="showAlsoMenu=false">
+        <div>Logout</div>
     </div>
 
     <div class="vid-header-search-container" *ngIf="searchline">
         <div class="vid-header-search-img">
-           <img src="./assets/img/vid_search.png"> 
+            <img src="./assets/img/vid_search.png">
         </div>
         <div class="vid-header-search-input">
             <input placeholder="Titel">
@@ -28,4 +29,19 @@
     </div>
 </div>
 
-<div class="vid-first-container" [style.background-image]="'url(./assets/img/green_mountain.jpg)'" (wheel)="newColor=true" (click)="searchline=false"></div>
+<div class="vid-content-container" [style.background-image]="'url(./assets/img/green_mountain.jpg)'"
+    (wheel)="newColor=true" (click)="searchline=false">
+    <div class="vid-content-video-container">
+        <div class="vid-contend-video-slider">
+            <div class="vid-content-preview-container" *ngFor="let dummy of dummyArray">
+            <span>Coming Soon</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="vid-footer-container">
+    <a routerLink="/legal" target="_blank">Impressum</a>
+    <span>|</span>
+    <a routerLink="/data" target="_blank">Datenschutz</a>
+</div>
