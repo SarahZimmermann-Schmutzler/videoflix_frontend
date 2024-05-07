@@ -31,17 +31,17 @@
 
 <div class="vid-content-container" [style.background-image]="'url(./assets/img/green_mountain.jpg)'"
     (wheel)="newColor=true" (click)="searchline=false">
-    <div class="vid-content-video-container">
-        <div class="vid-contend-video-slider">
-            <div class="vid-content-preview-container" *ngFor="let dummy of dummyArray" (mouseover)="slide_right=true" (mouseout)="hideSlider()">
+    <div class="vid-content-video-container" #carousel>
+        <div class="vid-contend-video-slider" [style.transform]="'translateX(' + (-currentIndex * slideWidth) + 'px)'">
+            <div class="vid-content-preview-container" [style.width.px]="slideWidth" *ngFor="let dummy of dummyArray" (mouseover)="showSlider()" (mouseout)="hideSlider()">
                 <span>{{dummy.title}}</span>
             </div>
         </div>
     </div>
 
     <div class="vid-contend-slider-container">
-        <div class="vid-content-slider-element" [class.show-slider]="slide_left" >
-            <img src="./assets/img/slide_left.png" [class.show-arrow]="slide_left">
+        <div class="vid-content-slider-element" [class.show-slider]="slide_left || slide_left_stay" (mouseover)="slide_left_stay=true" (mouseout)="slide_left_stay=false" (click)="slideLeft()">
+            <img src="./assets/img/slide_left.png" [class.show-arrow]="slide_left || slide_left_stay">
         </div>
 
         <div class="vid-content-slider-element" [class.show-slider]="slide_right || slide_right_stay" (mouseover)="slide_right_stay=true" (mouseout)="slide_right_stay=false; slide_left=false" (click)="slideRight()">

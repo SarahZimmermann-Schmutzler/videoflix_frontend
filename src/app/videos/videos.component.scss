@@ -183,7 +183,9 @@
     align-items: center;
     justify-content: space-between;
     box-sizing: border-box;
-    overflow-x: scroll;
+    // overflow-x: scroll;
+    overflow-x: hidden;
+    position: relative;
 
     &::-webkit-scrollbar {
         background: transparent;
@@ -197,6 +199,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    transition: transform 0.5s ease;
 }
 
 
