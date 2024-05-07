@@ -1,0 +1,9 @@
+<div class="carousel">
+    <div class="slider">
+      <div class="container" *ngFor="let index of visibleContainers" [style.left.px]="index * containerWidth">
+        {{ index + 1 }}
+      </div>
+    </div>
+    <button (click)="prevSlide()">Previous</button>
+    <button (click)="nextSlide()">Next</button>
+  </div>

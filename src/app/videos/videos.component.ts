@@ -81,7 +81,7 @@ export class VideosComponent {
     },
 
     {
-      'title': 'Coming Soon',
+      'title': 'LastOne',
       'img': 'quelle'
     },
 
@@ -134,6 +134,7 @@ export class VideosComponent {
       this.currentIndex = 0;
       setTimeout(() => {
         this.carousel.nativeElement.style.transition = 'none';
+        console.log(this.carousel.nativeElement.style.transition)
         this.carousel.nativeElement.style.transform = 'translateX(0)';
         setTimeout(() => {
           this.carousel.nativeElement.style.transition = '';
