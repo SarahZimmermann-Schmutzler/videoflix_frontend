@@ -11,9 +11,80 @@ export class VideosComponent {
   showAlsoMenu = false;
   newColor = false;
   searchline = false;
-  dummyArray = [1,2,3,4,5,6,7,8,9,10, 11, 12, 13];
+  slide_right = false;
+  slide_right_stay = false;
+  slide_left = false;
+  slide_left_stay = false;
+ 
+  dummyArray = [
+    {
+      'title': 'Coming Soon',
+      'img': 'quelle'
+    },
 
-  constructor() {}
+    {
+      'title': 'Coming Soon',
+      'img': 'quelle'
+    },
+
+    {
+      'title': 'Coming Soon',
+      'img': 'quelle'
+    },
+
+    {
+      'title': 'Coming Soon',
+      'img': 'quelle'
+    },
+
+    {
+      'title': 'Coming Soon',
+      'img': 'quelle'
+    },
+
+    {
+      'title': 'Coming Soon',
+      'img': 'quelle'
+    },
+
+    {
+      'title': 'Coming Soon',
+      'img': 'quelle'
+    },
+
+    {
+      'title': 'Coming Soon',
+      'img': 'quelle'
+    },
+
+    {
+      'title': 'Coming Soon',
+      'img': 'quelle'
+    },
+
+    {
+      'title': 'Coming Soon',
+      'img': 'quelle'
+    },
+
+    {
+      'title': 'Coming Soon',
+      'img': 'quelle'
+    },
+
+    {
+      'title': 'Coming Soon',
+      'img': 'quelle'
+    },
+
+    {
+      'title': 'Coming Soon',
+      'img': 'quelle'
+    },
+    
+  ];
+
+  constructor(public router: Router) {}
 
   ngOnInit() {
 
@@ -27,6 +98,22 @@ export class VideosComponent {
       setTimeout(() => {
       this.showMenu = false;
     }, 1000)
+  }
+
+  hideSlider() {
+    setTimeout(() => {
+    this.slide_right = false;
+  }, 500)
+}
+
+  logout() {
+    this.router.navigateByUrl('/').then(() => {
+      window.location.reload();
+    });
+  }
+
+  slideRight() {
+    this.slide_left = true;
   }
 }
 

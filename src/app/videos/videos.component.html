@@ -2,8 +2,8 @@
     <div class="vid-header-content-left">
         <img src="./assets/img/login_logo.png">
         <div class="vid-header-nav">
-            <div>Startseite</div>
-            <div>Filme</div>
+            <!-- <div>Startseite</div>
+            <div>Filme</div> -->
         </div>
     </div>
 
@@ -16,7 +16,7 @@
 
     <div class="vid-header-menu" *ngIf="showMenu || showAlsoMenu" (mouseover)="showAlsoMenu=true"
         (mouseout)="showAlsoMenu=false">
-        <div>Logout</div>
+        <div (click)="logout()">Logout</div>
     </div>
 
     <div class="vid-header-search-container" *ngIf="searchline">
@@ -33,12 +33,24 @@
     (wheel)="newColor=true" (click)="searchline=false">
     <div class="vid-content-video-container">
         <div class="vid-contend-video-slider">
-            <div class="vid-content-preview-container" *ngFor="let dummy of dummyArray">
-            <span>Coming Soon</span>
+            <div class="vid-content-preview-container" *ngFor="let dummy of dummyArray" (mouseover)="slide_right=true" (mouseout)="hideSlider()">
+                <span>{{dummy.title}}</span>
             </div>
         </div>
     </div>
+
+    <div class="vid-contend-slider-container">
+        <div class="vid-content-slider-element" [class.show-slider]="slide_left" >
+            <img src="./assets/img/slide_left.png" [class.show-arrow]="slide_left">
+        </div>
+
+        <div class="vid-content-slider-element" [class.show-slider]="slide_right || slide_right_stay" (mouseover)="slide_right_stay=true" (mouseout)="slide_right_stay=false; slide_left=false" (click)="slideRight()">
+            <img src="./assets/img/slide_right.png" [class.show-arrow]="slide_right || slide_right_stay">
+        </div>
+    </div>
 </div>
+
+
 
 <div class="vid-footer-container">
     <a routerLink="/legal" target="_blank">Impressum</a>
