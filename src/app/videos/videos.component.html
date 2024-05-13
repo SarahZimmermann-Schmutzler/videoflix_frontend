@@ -31,13 +31,24 @@
 
 <div class="vid-content-container" [style.background-image]="'url(./assets/img/green_mountain.jpg)'"
     (wheel)="newColor=true" (click)="searchline=false">
-    <div class="vid-content-bg-info"></div>
+    <div class="vid-content-bg-info-container">
+        <div class="vid-content-bg-info">
+            <img src="./assets/img/favicon.png">
+            <div>FILM</div>
+        </div>
+
+        <div class="vid-content-bg-title">GREEN HILLS</div>
+
+        <div class="vid-content-bg-subtitle">Tauche ein in die majestätische Schönheit grüner Berge! Lass dich von der Natur in ihrer prächtigsten Form verzaubern und entdecke die unendliche Faszination grüner Berge.</div>
+    </div>
+
     <div class="vid-content-video-container">
         <div class="vid-contend-video-slider" [style.transform]="'translateX(' + (-currentIndex * preview_element_width) + 'px)'">
             <div class="vid-content-preview-container" [style.background-image]="'url(./assets/img/ocean_above.jpg)'" *ngFor="let dummy of dummyArray" (mouseover)="showSlider()" (mouseout)="hideSlider()">
                 <div>{{dummy.title}}</div>
             </div>
         </div>
+        <!-- <div style="height: 10px; background-color: blue; width: 100%;"></div> -->
     </div>
 
     <div class="vid-contend-slider-container">
