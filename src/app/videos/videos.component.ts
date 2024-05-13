@@ -23,12 +23,12 @@ export class VideosComponent {
 
   dummyArray = [
     {
-      'title': 'Coming Soon1',
-      'img': 'quelle'
+      'title': 'Ocean from Above',
+      'img': 'ocean_above.jpg'
     },
 
     {
-      'title': 'Coming Soon2',
+      'title': 'Water and Rocks',
       'img': 'quelle'
     },
 
@@ -121,7 +121,7 @@ export class VideosComponent {
       // Array an Stelle 0 (=erstes Element) wird in das Array gepusht
       this.nextIndex = (this.nextIndex + 1) % this.dummyArray.length;
       // next Index wird um 1 vermindert bis Array zuende ist
-      console.log(this.dummyArray.length)
+      // console.log(this.dummyArray.length)
     }
 
     if (this.currentIndex === this.dummyArray.length - 1) {
@@ -133,46 +133,23 @@ export class VideosComponent {
 
 
   slideLeft() {
-
-    // if (this.dummyArray.length > 0) {
-    //   // wenn Array mind. 1 Object
-    //   this.previousIndex = this.dummyArray.length
-    //   let previousElement = this.dummyArray[this.previousIndex];
-    //   // prevoiusElement ist Array an letzter Stelle;
-    //   this.dummyArray.push(previousElement);
-    //   // Array an letzter Stelle 0 (=letztes Element) wird in das Array gepusht
-    //   this.previousIndex = (this.nextIndex - 1) % this.dummyArray.length;
-    //   // // next Index wird erhöht um 1 bis Array zuende ist
-    //   // console.log(this.dummyArray.length)
+    // if (this.currentIndex === 0) {
+    //   // this.currentIndex = this.dummyArray.length - 1;
+    // } else {
+    //   this.currentIndex--;
     // }
 
-    // if (this.dummyArray.length > 0) {
-    //   let lastElement = this.dummyArray[this.dummyArray.length - 1];
-    //   // das letzte Element des Arrays erhalten
-    //   this.dummyArray.push(lastElement);
-    //   // das letzte Element ans Ende des Arrays hinzufügen
-    //   console.log(this.dummyArray.length);
-    // }
-
-  //   let currentIndex = 0;
-
-  //   if (this.dummyArray.length > 0) {
-  //     let index = this.dummyArray.length - 1 - currentIndex;
-  //     if (index >= 0) {
-  //         let previousElement = this.dummyArray[index];
-  //         this.dummyArray.unshift(previousElement); // unshift() fügt das Element am Anfang des Arrays hinzu
-  //         console.log(this.dummyArray.length);
-  //         currentIndex++;
-  //     } else {
-  //         console.log("All objects added, starting from the last object again");
-  //         currentIndex = 0; // Index zurücksetzen, um wieder von vorne zu beginnen
-  //     }
-  // }
-
-    if (this.currentIndex === 0) {
-      this.currentIndex = this.dummyArray.length - 1;
-    } else {
+    if (this.currentIndex != 0) {
       this.currentIndex--;
+      this.dummyArray.pop();
+      // console.log(this.dummyArray.length)
+      // console.log(this.currentIndex)
+    }
+
+    if(this.currentIndex == 0) {
+      this.also_left_slide = false;
+      this.slide_left = false;
+      this.slide_left_stay = false;
     }
   }
 }
