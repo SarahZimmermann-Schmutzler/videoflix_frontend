@@ -48,19 +48,20 @@
                 <div>{{dummy.title}}</div>
             </div>
         </div>
-        <!-- <div style="height: 10px; background-color: blue; width: 100%;"></div> -->
     </div>
 
     <div class="vid-contend-slider-container">
         <div class="vid-content-slider-element" [class.show-slider]="slide_left || slide_left_stay" (mouseover)="showLeftSlide()" (mouseout)="slide_left_stay=false" (click)="slideLeft()">
             <img src="./assets/img/slide_left.png" [class.show-arrow]="slide_left || slide_left_stay">
         </div>
-
+    
         <div class="vid-content-slider-element" [class.show-slider]="slide_right || slide_right_stay" (mouseover)="slide_right_stay=true" (mouseout)="slide_right_stay=false; slide_left=false" (click)="slideRight()">
             <img src="./assets/img/slide_right.png" [class.show-arrow]="slide_right || slide_right_stay">
         </div>
     </div>
 </div>
+
+
 
 
 

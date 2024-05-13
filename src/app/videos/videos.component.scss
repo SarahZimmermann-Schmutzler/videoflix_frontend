@@ -244,7 +244,8 @@
 }
 
 .vid-contend-video-slider {
-    height: 50%;
+    height: 100%;
+    // height: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -264,8 +265,10 @@
 
 .vid-content-slider-element {
     position: relative;
-    top: -149px;
-    height: 125px;
+    // top: -149px;
+    top: -898%;
+    // height: 125px;
+    height: 798%;
     width: 50px;
     display: flex;
     align-items: center;
@@ -293,8 +296,10 @@
 
 
 .vid-content-preview-container {
-    height: 125px;
+    // height: 125px;
+    height: 80%;
     width: 230px;
+    // width: 80%;
     margin-right: 8px;
     background-color: black;
     background-position: center;
