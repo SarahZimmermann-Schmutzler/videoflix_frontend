@@ -23,7 +23,7 @@ jobs:
     #     npm run test -- --watch=false --browsers=ChromeHeadless
 
     - name: 📂 Sync files
-      uses: SamKirkland/FTP-Deploy-Action@4.3.5
+      uses: SamKirkland/FTP-Deploy-Action@v4.3.5
       with:
         server: videoflix.s-zimmermann-schmutzler.de
         username: ${{ secrets.FTP_USER }}
