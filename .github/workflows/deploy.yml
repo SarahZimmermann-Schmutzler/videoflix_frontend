@@ -8,10 +8,10 @@ jobs:
     - name: 🚚 Get latest code
       uses: actions/checkout@v2
     
-    - name: Node 16.17.1
+    - name: Node 20.11.1
       uses: actions/setup-node@v1
       with:
-        node-version: 16.17.1
+        node-version: 20.11.1
 
     - name: Install and build
       run: |
