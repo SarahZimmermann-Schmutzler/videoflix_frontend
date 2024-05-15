@@ -1,5 +1,6 @@
 import { Component, ElementRef, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
+import { AuthService } from '../services/auth.service';
 
 @Component({
   selector: 'app-videos',
@@ -20,6 +21,7 @@ export class VideosComponent {
   preview_element_width = 230;
   nextIndex = 0;
   previousIndex: number;
+  currentUserId = '';
 
   dummyArray = [
     {
@@ -64,18 +66,18 @@ export class VideosComponent {
 
   ];
 
-  @ViewChild('carousel') carousel: ElementRef;
+  // @ViewChild('carousel') carousel: ElementRef;
 
-  constructor(public router: Router) { }
+  constructor(public router: Router, public authservice: AuthService) { }
 
   ngOnInit() {
-    // this.slideWidth = 230; // Breite eines einzelnen Slides in Pixel
-    // this.dummyArray.push(this.dummyArray[0]);
+    
   }
 
   scroll(el: HTMLElement) {
     el.scrollIntoView
   }
+
 
   hideLogoutMenu() {
     setTimeout(() => {
@@ -103,10 +105,20 @@ export class VideosComponent {
     }
   }
 
-  logout() {
-    this.router.navigateByUrl('/').then(() => {
-      window.location.reload();
-    });
+  async logout() {
+    this.currentUserId = this.authservice.currentUser;
+    
+    try {
+      let resp = await this.authservice.logout(this.currentUserId);
+      this.router.navigateByUrl('/').then(() => {
+        window.location.reload();
+      });
+    } catch (e) {
+      console.error(e);
+      // window.location.reload();
+    }
+
+    
   }
 
   slideRight() {

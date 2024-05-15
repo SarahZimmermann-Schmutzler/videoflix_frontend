@@ -2,17 +2,20 @@ import { HttpErrorResponse, HttpEvent, HttpHandler, HttpInterceptor, HttpRequest
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { Observable, catchError, throwError } from 'rxjs';
+import { AuthService } from './auth.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthInterceptorService implements HttpInterceptor{
 
-  constructor(private router: Router) { }
+  constructor(private router: Router, public authservice: AuthService) { }
+  currentToken = '';
   
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
     // als Antwort erhalten wir ein Observable
-    const token = localStorage.getItem('token');
+    this.currentToken = this.authservice.currentToken;
+    const token = this.currentToken;
     // token wird abgerufen, entweder aus dem this.authService.getAuthToken() oder wie wir aus dem LS
     if (token) {
       // gibt es Token, wird es dem header angehängt

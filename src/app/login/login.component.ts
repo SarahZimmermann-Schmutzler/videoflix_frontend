@@ -31,8 +31,8 @@ export class LoginComponent {
     this.username = partBeforeAt[0];
     try {
       let resp = await this.authservice.loginWithUserAndPassword(this.username, this.password);
-      localStorage.setItem('token', resp['token'])
-      // console.log('Erfolgreich')
+      this.authservice.currentToken = resp['token'];
+      this.authservice.currentUser = resp['user_id'];
       this.router.navigateByUrl('/videos');
       
       // .then(() => {

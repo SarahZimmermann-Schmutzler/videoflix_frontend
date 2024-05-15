@@ -11,6 +11,9 @@ export class AuthService {
   constructor(private http: HttpClient, ) { }
   // http Client wird erst geladen, wenn wir ihn brauchen
 
+  public currentUser: string;
+  public currentToken: string;
+
   public loginWithUserAndPassword(username:string, password:string) {
     const url = environment.baseURL + '';
     // URL des Backends
@@ -58,5 +61,11 @@ export class AuthService {
       'new_password': new_password
     }
     return lastValueFrom(this.http.patch(url, body));
+  }
+
+
+  public logout(userId) {
+    const url = `${environment.baseURL}/logout/${userId}/`;
+    return lastValueFrom(this.http.delete(url));
   }
 }
