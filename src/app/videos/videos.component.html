@@ -50,8 +50,10 @@
 
     <div class="vid-content-video-container">
         <div class="vid-contend-video-slider" [style.transform]="'translateX(' + (-currentIndex * preview_element_width) + 'px)'">
-            <div class="vid-content-preview-container" [style.background-image]="'url(./assets/img/ocean_above.jpg)'" *ngFor="let dummy of dummyArray" (mouseover)="showSlider()" (mouseout)="hideSlider()">
-                <div>{{dummy.title}}</div>
+            <div class="vid-content-preview-container"  *ngFor="let video of videos" (mouseover)="showSlider()" (mouseout)="hideSlider()">
+                <div class="preview-container-bg" [style.background-image]="'url('+'http://127.0.0.1:8000'+video.preview_img+')'">
+                    <div>{{video.title}}</div>
+                </div>
             </div>
         </div>
     </div>

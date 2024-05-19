@@ -1,6 +1,7 @@
 import { Component, ElementRef, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from '../services/auth.service';
+import { VideoService } from '../services/video.service';
 
 @Component({
   selector: 'app-videos',
@@ -22,6 +23,7 @@ export class VideosComponent {
   nextIndex = 0;
   previousIndex: number;
   currentUserId = '';
+  videos: any = [];
 
   dummyArray = [
     {
@@ -68,10 +70,13 @@ export class VideosComponent {
 
   // @ViewChild('carousel') carousel: ElementRef;
 
-  constructor(public router: Router, public authservice: AuthService) { }
+  constructor(
+    public router: Router, 
+    public authservice: AuthService, public videoService: VideoService) { }
 
-  ngOnInit() {
-    
+  async ngOnInit() {
+    this.videos = await this.videoService.loadVideos();
+    console.log(this.videos)
   }
 
   scroll(el: HTMLElement) {
@@ -125,18 +130,18 @@ export class VideosComponent {
     this.also_left_slide = true;
     this.slide_left = true;
 
-    if (this.dummyArray.length > 0) {
+    if (this.videos.length > 0) {
       // wenn Array mind. 1 Object
-      let nextElement = this.dummyArray[this.nextIndex];
+      let nextElement = this.videos[this.nextIndex];
       // nextElement ist Array an Stelle 0;
-      this.dummyArray.push(nextElement);
+      this.videos.push(nextElement);
       // Array an Stelle 0 (=erstes Element) wird in das Array gepusht
-      this.nextIndex = (this.nextIndex + 1) % this.dummyArray.length;
+      this.nextIndex = (this.nextIndex + 1) % this.videos.length;
       // next Index wird um 1 vermindert bis Array zuende ist
       // console.log(this.dummyArray.length)
     }
 
-    if (this.currentIndex === this.dummyArray.length - 1) {
+    if (this.currentIndex === this.videos.length - 1) {
       this.currentIndex = 0;
     } else {
       this.currentIndex++;
@@ -153,7 +158,7 @@ export class VideosComponent {
 
     if (this.currentIndex != 0) {
       this.currentIndex--;
-      this.dummyArray.pop();
+      this.videos.pop();
       // console.log(this.dummyArray.length)
       // console.log(this.currentIndex)
     }
