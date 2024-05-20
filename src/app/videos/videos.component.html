@@ -77,4 +77,4 @@
 </div>
 
 <!-- Video Detail Popup -->
-<app-video-detail *ngIf="videoDetailPopup" (click)="videoDetailPopup=false" (click)="showFooter=true"></app-video-detail>
+<app-video-detail *ngIf="videoDetailPopup" (click)="videoDetailPopup=false" (click)="showFooter=true" (videoDetailPopup)="closeVideoPopup($event)"></app-video-detail>

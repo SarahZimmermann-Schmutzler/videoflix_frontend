@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 
 @Component({
   selector: 'app-video-detail',
@@ -7,4 +7,15 @@ import { Component } from '@angular/core';
 })
 export class VideoDetailComponent {
 
+  @Output() videoDetailPopup = new EventEmitter()
+
+  // prevents closing popup by clicking on popup-content
+  doNotClose(e: Event) {
+    e.stopPropagation();
+  }
+
+  // closes the video-detail-popup
+  closeVideoDetail() {
+    this.videoDetailPopup.emit(false);
+  }
 }

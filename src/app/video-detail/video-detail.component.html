@@ -1,3 +1,8 @@
 <div class="vid-detail-bg">
-    <div class="vid-detail-container"></div>
+    <div class="vid-detail-container" (click)="doNotClose($event)">
+        <video class="vid-detail-screen">
+            
+        </video>
+        <div class="vid-detail-close"><img src="./assets/img/close.png" (click)="closeVideoDetail()"></div>
+    </div>
 </div>
