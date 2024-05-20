@@ -25,7 +25,7 @@ export class VideosComponent {
   currentUserId = '';
   videos: any = [];
   // nach bearbeiten videoDetail Popup false stellen
-  videoDetailPopup = true;
+  videoDetailPopup = false;
   showFooter = true;
 
   dummyArray = [
@@ -175,6 +175,12 @@ export class VideosComponent {
 
   closeVideoPopup($event) {
     this.videoDetailPopup = ($event);
+  }
+
+  openVideoPopup(videoId) {
+    this.videoDetailPopup=true;
+    this.showFooter=false;
+    this.videoService.videoId = videoId;
   }
 }
 

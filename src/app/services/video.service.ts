@@ -10,6 +10,8 @@ export class VideoService {
 
   constructor(private http: HttpClient) { }
 
+  public videoId: string;
+
   loadVideos() {
     const url = environment.baseURL + '/api/videos/';
     return lastValueFrom(this.http.get(url));
