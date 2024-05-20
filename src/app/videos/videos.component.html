@@ -42,7 +42,7 @@
 
         <div class="vid-content-bg-subtitle">Tauche ein in die majestätische Schönheit grüner Berge! Lass dich von der Natur in ihrer prächtigsten Form verzaubern und entdecke die unendliche Faszination grüner Berge.</div>
 
-        <button class="vid-content-play-btn">
+        <button class="vid-content-play-btn" (click)="videoDetailPopup=true" (click)="showFooter=false">
             <img src="./assets/img/arrow_right.png">
             Abspielen
         </button>
@@ -50,7 +50,7 @@
 
     <div class="vid-content-video-container">
         <div class="vid-contend-video-slider" [style.transform]="'translateX(' + (-currentIndex * preview_element_width) + 'px)'">
-            <div class="vid-content-preview-container"  *ngFor="let video of videos" (mouseover)="showSlider()" (mouseout)="hideSlider()">
+            <div class="vid-content-preview-container"  *ngFor="let video of videos" (mouseover)="showSlider()" (mouseout)="hideSlider()" (click)="videoDetailPopup=true" (click)="showFooter=false">
                 <div class="preview-container-bg" [style.background-image]="'url('+'http://127.0.0.1:8000'+video.preview_img+')'">
                     <div>{{video.title}}</div>
                 </div>
@@ -70,8 +70,11 @@
 </div>
 
 
-<div class="vid-footer-container">
+<div class="vid-footer-container" *ngIf="showFooter">
     <a routerLink="/legal" target="_blank">Impressum</a>
     <span>|</span>
     <a routerLink="/data" target="_blank">Datenschutz</a>
 </div>
+
+<!-- Video Detail Popup -->
+<app-video-detail *ngIf="videoDetailPopup" (click)="videoDetailPopup=false" (click)="showFooter=true"></app-video-detail>

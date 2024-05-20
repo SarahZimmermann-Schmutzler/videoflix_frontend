@@ -24,6 +24,9 @@ export class VideosComponent {
   previousIndex: number;
   currentUserId = '';
   videos: any = [];
+  // nach bearbeiten videoDetail Popup false stellen
+  videoDetailPopup = false;
+  showFooter = true;
 
   dummyArray = [
     {

@@ -16,6 +16,7 @@ import { PasswordResetComponent } from './password-reset/password-reset.componen
 import { ActivateAccountComponent } from './activate-account/activate-account.component';
 import { VideosComponent } from './videos/videos.component';
 import { TestComponent } from './test/test.component';
+import { VideoDetailComponent } from './video-detail/video-detail.component';
 
 @NgModule({
   declarations: [
@@ -30,6 +31,7 @@ import { TestComponent } from './test/test.component';
     ActivateAccountComponent,
     VideosComponent,
     TestComponent,
+    VideoDetailComponent,
   ],
   imports: [
     BrowserModule,
