@@ -1,9 +1,17 @@
 <div class="vid-detail-bg">
     <div class="vid-detail-container" (click)="doNotClose($event)">
-        <video class="vid-detail-screen" src="http://127.0.0.1:8000/media/videos/green_hills_1080p.mp4" controls></video>
+        <video class="vid-detail-screen" src="{{videoSource}}" controls></video>
 
         <div class="vid-detail-close"><img src="./assets/img/close.png" (click)="closeVideoDetail()"></div>
 
-        <div class="vid-detail-title">{{currentVideo.title}}</div>
+        <div class="vid-detail-title" style="font-weight:bold;">{{currentVideo.title}}</div>
+
+        <div class="vid-detail-title">{{currentVideo.description}}</div>
+
+        <div class="vid-detail-resolution">
+            <button [class.red-btn]="clicked1080" (click)="clickVideo(high, true, false, false)">1080p</button>
+            <button [class.red-btn]="clicked720" (click)="clickVideo(middle, false, true, false)">720p</button>
+            <button [class.red-btn]="clicked480" (click)="clickVideo(low, false, false, true)">480p</button>
+        </div>
     </div>
 </div>
