@@ -101,7 +101,7 @@ export class VideosComponent {
       // Array an Stelle 0 (=erstes Element) wird in das Array gepusht
       this.nextIndex = (this.nextIndex + 1) % this.videos.length;
       // next Index wird um 1 vermindert bis Array zuende ist
-      // console.log(this.dummyArray.length)
+      console.log(this.videos.length, this.videos)
     }
 
     if (this.currentIndex === this.videos.length - 1) {
@@ -116,12 +116,14 @@ export class VideosComponent {
     if (this.currentIndex != 0) {
       this.currentIndex--;
       this.videos.pop();
+      // this.videos.splice(-1);
     }
 
     if (this.currentIndex == 0) {
       this.also_left_slide = false;
       this.slide_left = false;
       this.slide_left_stay = false;
+      window.location.reload();
     }
   }
 
