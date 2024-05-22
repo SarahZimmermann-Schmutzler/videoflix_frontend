@@ -6,7 +6,7 @@ import { VideoService } from '../services/video.service';
 @Component({
   selector: 'app-videos',
   templateUrl: './videos.component.html',
-  styleUrls: ['./videos.component.scss']
+  styleUrls: ['./videos.component.scss', './videos_content.component.scss']
 })
 export class VideosComponent {
   showMenu = false;
@@ -24,63 +24,21 @@ export class VideosComponent {
   previousIndex: number;
   currentUserId = '';
   videos: any = [];
-  // nach bearbeiten videoDetail Popup false stellen
   videoDetailPopup = false;
   showFooter = true;
-
-  dummyArray = [
-    {
-      'title': 'Ocean from Above',
-      'img': 'ocean_above.jpg'
-    },
-
-    {
-      'title': 'Water and Rocks',
-      'img': 'quelle'
-    },
-
-    {
-      'title': 'Coming Soon3',
-      'img': 'quelle'
-    },
-
-    {
-      'title': 'Coming Soon4',
-      'img': 'quelle'
-    },
-
-    {
-      'title': 'Coming Soon5',
-      'img': 'quelle'
-    },
-
-    {
-      'title': 'Coming Soon6',
-      'img': 'quelle'
-    },
-
-    {
-      'title': 'Coming Soon7',
-      'img': 'quelle'
-    },
-
-    {
-      'title': 'LastOne',
-      'img': 'quelle'
-    },
-
-  ];
-
-  // @ViewChild('carousel') carousel: ElementRef;
+  localServer = 'http://127.0.0.1:8000';
+  googleVM = 'https://backend.s-zimmermann-schmutzler.de/videoflix';
 
   constructor(
-    public router: Router, 
+    public router: Router,
     public authservice: AuthService, public videoService: VideoService) { }
+
 
   async ngOnInit() {
     this.videos = await this.videoService.loadVideos();
     console.log(this.videos)
   }
+
 
   scroll(el: HTMLElement) {
     el.scrollIntoView
@@ -93,12 +51,14 @@ export class VideosComponent {
     }, 1000)
   }
 
+
   hideSlider() {
     setTimeout(() => {
       this.slide_right = false;
       this.slide_left = false;
     }, 500)
   }
+
 
   showSlider() {
     this.slide_right = true;
@@ -107,15 +67,17 @@ export class VideosComponent {
     }
   }
 
+
   showLeftSlide() {
     if (this.also_left_slide == true) {
       this.slide_left_stay = true;
     }
   }
 
+
   async logout() {
     this.currentUserId = this.authservice.currentUser;
-    
+
     try {
       let resp = await this.authservice.logout(this.currentUserId);
       this.router.navigateByUrl('/').then(() => {
@@ -123,11 +85,9 @@ export class VideosComponent {
       });
     } catch (e) {
       console.error(e);
-      // window.location.reload();
     }
-
-    
   }
+
 
   slideRight() {
     this.also_left_slide = true;
@@ -153,33 +113,27 @@ export class VideosComponent {
 
 
   slideLeft() {
-    // if (this.currentIndex === 0) {
-    //   // this.currentIndex = this.dummyArray.length - 1;
-    // } else {
-    //   this.currentIndex--;
-    // }
-
     if (this.currentIndex != 0) {
       this.currentIndex--;
       this.videos.pop();
-      // console.log(this.dummyArray.length)
-      // console.log(this.currentIndex)
     }
 
-    if(this.currentIndex == 0) {
+    if (this.currentIndex == 0) {
       this.also_left_slide = false;
       this.slide_left = false;
       this.slide_left_stay = false;
     }
   }
 
+
   closeVideoPopup($event) {
     this.videoDetailPopup = ($event);
   }
 
+
   openVideoPopup(videoId) {
-    this.videoDetailPopup=true;
-    this.showFooter=false;
+    this.videoDetailPopup = true;
+    this.showFooter = false;
     this.videoService.videoId = videoId;
   }
 }

@@ -26,6 +26,7 @@ export class LoginComponent {
     this.userDataInStorage();
   }
 
+
   async login() {
     let partBeforeAt = this.email.split('@');
     this.username = partBeforeAt[0];
@@ -34,16 +35,11 @@ export class LoginComponent {
       this.authservice.currentToken = resp['token'];
       this.authservice.currentUser = resp['user_id'];
       this.router.navigateByUrl('/videos');
-      
-      // .then(() => {
-      //   window.location.reload();
-      // });
     } catch (e) {
-      // console.error(e);
-      // window.location.reload();
       this.wrongPwd = true;
     }
   }
+
 
   watchForm() {
     setInterval(() => {
@@ -54,6 +50,7 @@ export class LoginComponent {
       }
     }, 500);
   }
+
 
   changeBorderColorMail(event) {
     if (event.isTrusted == true) {
@@ -69,6 +66,7 @@ export class LoginComponent {
     }
   }
 
+
   changeBorderColorPwd(event) {
     if (event.isTrusted == true) {
       this.redPwdBorder = true;
@@ -83,6 +81,7 @@ export class LoginComponent {
     }
   }
 
+
   rememberMe(event) {
     if(event.target.checked == true && this.email != '' && this.password != '') {
       localStorage.setItem('email', this.email);
@@ -95,6 +94,7 @@ export class LoginComponent {
     }
   }
 
+  
   userDataInStorage(){
     let rememberedMail = localStorage.getItem('email');
     let rememberedPwd = localStorage.getItem('password');

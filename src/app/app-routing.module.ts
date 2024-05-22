@@ -9,7 +9,6 @@ import { ForgottenPasswordComponent } from './forgotten-password/forgotten-passw
 import { PasswordResetComponent } from './password-reset/password-reset.component';
 import { ActivateAccountComponent } from './activate-account/activate-account.component';
 import { VideosComponent } from './videos/videos.component';
-import { TestComponent } from './test/test.component';
 
 
 const routes: Routes = [
@@ -23,7 +22,6 @@ const routes: Routes = [
   {path: 'data', component:DataProtectionComponent},
   {path: 'legal', component:LegalNoticeComponent},
   {path: 'videos', component:VideosComponent},
-  {path: 'test', component:TestComponent},
 ];
 
 @NgModule({

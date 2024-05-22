@@ -26,9 +26,11 @@ export class PasswordResetComponent {
     private router: Router, 
     public route:ActivatedRoute) { }
   
+
   ngOnInit() {
     this.watchForm();
   }
+
 
   watchForm() {
     setInterval(() => {
@@ -50,7 +52,6 @@ export class PasswordResetComponent {
     this.encoded_pk = this.route.snapshot.paramMap.get('encoded_pk');
     this.decoded_pk = atob(this.encoded_pk);
 
-  
     try {
       let resp = await this.authservice.passwordReset(
         this.decoded_pk,
@@ -61,14 +62,15 @@ export class PasswordResetComponent {
         this.goToLogin()
       }, 2000);
     } catch (e) {
-      // console.error(e);
       this.sthWrong = true;
     }
   }
 
+
   goToLogin() {
     this.router.navigateByUrl('/login')
   }
+
 
   changeBorderColorPwdOne(event) {
     if (event.isTrusted == true) {
@@ -84,6 +86,7 @@ export class PasswordResetComponent {
     }
   }
 
+  
   changeBorderColorPwdTwo(event) {
     if (this.passwordTwo === this.passwordOne && this.passwordTwo.length > 7) {
       this.redPwdTwoBorder = false;

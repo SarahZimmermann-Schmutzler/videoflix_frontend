@@ -15,7 +15,6 @@ import { AuthInterceptorService } from './services/auth-interceptor.service';
 import { PasswordResetComponent } from './password-reset/password-reset.component';
 import { ActivateAccountComponent } from './activate-account/activate-account.component';
 import { VideosComponent } from './videos/videos.component';
-import { TestComponent } from './test/test.component';
 import { VideoDetailComponent } from './video-detail/video-detail.component';
 
 @NgModule({
@@ -30,7 +29,6 @@ import { VideoDetailComponent } from './video-detail/video-detail.component';
     PasswordResetComponent,
     ActivateAccountComponent,
     VideosComponent,
-    TestComponent,
     VideoDetailComponent,
   ],
   imports: [

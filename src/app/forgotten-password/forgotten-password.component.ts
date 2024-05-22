@@ -19,9 +19,11 @@ export class ForgottenPasswordComponent {
     public authservice: AuthService,
     private router: Router,) { }
   
+    
     ngOnInit() {
     this.watchForm();
   } 
+
 
   watchForm() {
     setInterval(() => {
@@ -33,18 +35,16 @@ export class ForgottenPasswordComponent {
     }, 500);
   }
 
+
   async sendMail() {
     try{
       let resp: any = await this.authservice.forgottenPassword(this.email)
-      // this.router.navigateByUrl('/login').then(() => {
-      //   window.location.reload();
-      // });
       this.success = true;
     } catch(e) {
-      // console.error(e);
       this.sthWrong = true;
     }
   }
+
 
   changeBorderColorMail(event) {
     if (event.isTrusted == true) {

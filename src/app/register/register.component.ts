@@ -31,6 +31,7 @@ export class RegisterComponent {
     this.watchForm();
   }
 
+
   watchForm() {
     setInterval(() => {
       if (this.greenMailBorder == true && this.greenPwdBorder == true && this.redMailBorder == false && this.redPwdBorder == false) {
@@ -40,6 +41,7 @@ export class RegisterComponent {
       }
     }, 500);
   }
+
 
   changeBorderColor(event) {
     if (event.isTrusted == true) {
@@ -76,5 +78,4 @@ export class RegisterComponent {
       this.sthWrong = true;
     }
   }
-
 }

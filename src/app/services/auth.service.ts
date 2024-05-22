@@ -34,7 +34,6 @@ export class AuthService {
       'email': email
     }
     return lastValueFrom(this.http.post(url, body));
-    // lastValueFrom wandelt es in Promise um
   }
 
   

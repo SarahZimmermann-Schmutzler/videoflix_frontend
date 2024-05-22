@@ -8,5 +8,4 @@ export class HomeService {
   constructor() { }
 
   public registerMail: string;
-
 }

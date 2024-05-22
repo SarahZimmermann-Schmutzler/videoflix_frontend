@@ -14,12 +14,13 @@ export class HomeComponent {
   greenBorder = false;
   disabledButton = true;
 
-
   constructor(private router: Router, private service: HomeService) { }
+
 
   ngOnInit() {
     
   }
+
 
   changeBorderColor(event) {
     if(event.isTrusted == true) {
@@ -37,13 +38,9 @@ export class HomeComponent {
     }
   }
 
+
   toRegister() {
     this.service.registerMail = this.email;
     this.router.navigateByUrl('/register');
   }
-
-  //   if(email != null && email.length > 5){
-  //     // Your code...
-  // }
-
 }

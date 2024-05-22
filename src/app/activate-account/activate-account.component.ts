@@ -14,9 +14,11 @@ export class ActivateAccountComponent {
 
   constructor(private authservice: AuthService, private router: Router, public route:ActivatedRoute) { }
 
+
   ngOnInit() {
     this.setUserActive();
   }
+
 
   async setUserActive() {
     this.encoded_pk = this.route.snapshot.paramMap.get('encoded_pk');
@@ -28,13 +30,12 @@ export class ActivateAccountComponent {
       );
       this.goToLogin();
     } catch (e) {
-      // console.error(e);
       this.sthWrong = true;
     }
   }
 
+
   goToLogin() {
     this.router.navigateByUrl('/login')
   }
-
 }
