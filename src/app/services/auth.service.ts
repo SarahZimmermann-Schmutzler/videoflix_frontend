@@ -11,8 +11,8 @@ export class AuthService {
   constructor(private http: HttpClient, ) { }
   // http Client wird erst geladen, wenn wir ihn brauchen
 
-  public currentUser: string;
-  public currentToken: string;
+  // public currentUser: string;
+  // public currentToken: string;
 
   public loginWithUserAndPassword(username:string, password:string) {
     const url = environment.baseURL + '';

@@ -10,12 +10,15 @@ import { AuthService } from './auth.service';
 export class AuthInterceptorService implements HttpInterceptor{
 
   constructor(private router: Router, public authservice: AuthService) { }
-  currentToken = '';
+  decodedToken = '';
+  encodedToken = '';
   
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
     // als Antwort erhalten wir ein Observable
-    this.currentToken = this.authservice.currentToken;
-    const token = this.currentToken;
+    this.decodedToken = localStorage.getItem('token');
+    this.encodedToken = window.atob(this.decodedToken);
+    // this.currentToken = this.authservice.currentToken;
+    const token = this.encodedToken;
     // token wird abgerufen, entweder aus dem this.authService.getAuthToken() oder wie wir aus dem LS
     if (token) {
       // gibt es Token, wird es dem header angehängt

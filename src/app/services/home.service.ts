@@ -8,4 +8,6 @@ export class HomeService {
   constructor() { }
 
   public registerMail: string;
+  // public rememberMail: string;
+  // public rememberPwd: string;
 }

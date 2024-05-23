@@ -1,4 +1,4 @@
-import { Component, ElementRef, ViewChild } from '@angular/core';
+import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from '../services/auth.service';
 import { VideoService } from '../services/video.service';
@@ -23,6 +23,7 @@ export class VideosComponent {
   nextIndex = 0;
   previousIndex: number;
   currentUserId = '';
+  encodedUserId = '';
   videos: any = [];
   videoDetailPopup = false;
   showFooter = true;
@@ -36,7 +37,6 @@ export class VideosComponent {
 
   async ngOnInit() {
     this.videos = await this.videoService.loadVideos();
-    console.log(this.videos)
   }
 
 
@@ -76,10 +76,14 @@ export class VideosComponent {
 
 
   async logout() {
-    this.currentUserId = this.authservice.currentUser;
+    this.encodedUserId = localStorage.getItem('id');
+    this.currentUserId = window.atob(this.encodedUserId);
+    // this.currentUserId = this.authservice.currentUser;
 
     try {
       let resp = await this.authservice.logout(this.currentUserId);
+      localStorage.removeItem('token');
+      localStorage.removeItem('id');
       this.router.navigateByUrl('/').then(() => {
         window.location.reload();
       });

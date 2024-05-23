@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { AuthService } from '../services/auth.service';
 import { Router } from '@angular/router';
+import { HomeService } from '../services/home.service';
 
 @Component({
   selector: 'app-login',
@@ -18,8 +19,17 @@ export class LoginComponent {
   disabledButton = true;
   wrongPwd = false;
   isChecked = false;
+  currentToken = '';
+  decodedToken = '';
+  currentId = '';
+  decodedId = '';
 
-  constructor(private authservice: AuthService, private router: Router) { }
+
+  constructor(
+    private authservice: AuthService, 
+    private router: Router,
+    private homeService: HomeService,
+  ) { }
 
   ngOnInit() {
     this.watchForm();
@@ -32,8 +42,14 @@ export class LoginComponent {
     this.username = partBeforeAt[0];
     try {
       let resp = await this.authservice.loginWithUserAndPassword(this.username, this.password);
-      this.authservice.currentToken = resp['token'];
-      this.authservice.currentUser = resp['user_id'];
+      this.currentToken = resp['token'];
+      this.currentId = resp['user_id'];
+      this.decodedToken = window.btoa(this.currentToken);
+      this.decodedId = window.btoa(this.currentId);
+      localStorage.setItem('token', this.decodedToken);
+      localStorage.setItem('id', this.decodedId);
+      // this.authservice.currentToken = resp['token'];
+      // this.authservice.currentUser = resp['user_id'];
       this.router.navigateByUrl('/videos');
     } catch (e) {
       this.wrongPwd = true;
