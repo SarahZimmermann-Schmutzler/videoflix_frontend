@@ -23,17 +23,19 @@ export class LoginComponent {
   decodedToken = '';
   currentId = '';
   decodedId = '';
+  remember = false;
+  rememberedMail = '';
+  rememberedPwd = '';
 
 
   constructor(
     private authservice: AuthService, 
     private router: Router,
-    private homeService: HomeService,
   ) { }
 
   ngOnInit() {
     this.watchForm();
-    this.userDataInStorage();
+    this.getUserDataFromLS();
   }
 
 
@@ -48,8 +50,6 @@ export class LoginComponent {
       this.decodedId = window.btoa(this.currentId);
       localStorage.setItem('token', this.decodedToken);
       localStorage.setItem('id', this.decodedId);
-      // this.authservice.currentToken = resp['token'];
-      // this.authservice.currentUser = resp['user_id'];
       this.router.navigateByUrl('/videos');
     } catch (e) {
       this.wrongPwd = true;
@@ -59,7 +59,7 @@ export class LoginComponent {
 
   watchForm() {
     setInterval(() => {
-      if (this.normalMailBorder == true && this.normalPwdBorder == true && this.redMailBorder == false && this.redPwdBorder == false) {
+      if (this.normalMailBorder == true && this.normalPwdBorder == true && this.redMailBorder == false && this.redPwdBorder == false || this.remember == true) {
         this.disabledButton = false;
       } else {
         this.disabledButton = true;
@@ -100,8 +100,10 @@ export class LoginComponent {
 
   rememberMe(event) {
     if(event.target.checked == true && this.email != '' && this.password != '') {
-      localStorage.setItem('email', this.email);
-      localStorage.setItem('password', this.password);
+      let encodedMail = window.btoa(this.email);
+      let encodedPwd = window.btoa(this.password);
+      localStorage.setItem('email', encodedMail);
+      localStorage.setItem('password', encodedPwd);
     } 
     
     if (event.target.checked == false) {
@@ -111,20 +113,31 @@ export class LoginComponent {
   }
 
   
-  userDataInStorage(){
-    let rememberedMail = localStorage.getItem('email');
-    let rememberedPwd = localStorage.getItem('password');
+  getUserDataFromLS(){
+    this.decodeUserData();
+    this.fillInUserData();
+  }
 
-    if (rememberedMail != '' && rememberedPwd != '') {
-      this.isChecked = true;
-      this.email = rememberedMail;
-      this.password = rememberedPwd;
+
+  decodeUserData() {
+    if(localStorage.getItem('email') != null) {
+      let encodedMail = localStorage.getItem('email');
+      this.rememberedMail = window.atob(encodedMail);
     }
     
-    if(rememberedMail == null || rememberedPwd == null) {
-      this.email = '';
-      this.password = '';
-      this.isChecked = false;
+    if(localStorage.getItem('password') != null) {
+      let encodedPwd = localStorage.getItem('password');
+      this.rememberedPwd = window.atob(encodedPwd);
     }
+  }
+
+
+  fillInUserData() {
+    if (this.rememberedMail && this.rememberedPwd ) {
+      this.isChecked = true;
+      this.email = this.rememberedMail;
+      this.password = this.rememberedPwd;
+      this.remember = true;
+    } 
   }
 }

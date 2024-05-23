@@ -2,6 +2,7 @@
     <div class="vid-detail-container" (click)="doNotClose($event)">
         <video class="vid-detail-screen" src="{{videoSource}}" controls></video>
 
+
         <div class="vid-detail-close"><img src="./assets/img/close.png" (click)="closeVideoDetail()"></div>
 
         <div class="vid-detail-title" style="font-weight:bold;">{{currentVideo.title}}</div>
@@ -13,5 +14,6 @@
             <button [class.red-btn]="clicked720" (click)="clickVideo(middle, false, true, false)">720p</button>
             <button [class.red-btn]="clicked480" (click)="clickVideo(low, false, false, true)">480p</button>
         </div>
+
     </div>
 </div>
