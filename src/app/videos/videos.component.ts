@@ -45,6 +45,7 @@ export class VideosComponent {
   }
 
 
+  // hides logout popup afer 1sec
   hideLogoutMenu() {
     setTimeout(() => {
       this.showMenu = false;
@@ -52,6 +53,7 @@ export class VideosComponent {
   }
 
 
+  // hides slider element afer 0.5sec
   hideSlider() {
     setTimeout(() => {
       this.slide_right = false;
@@ -60,6 +62,7 @@ export class VideosComponent {
   }
 
 
+  // shows right slider element
   showSlider() {
     this.slide_right = true;
     if (this.also_left_slide == true) {
@@ -68,6 +71,7 @@ export class VideosComponent {
   }
 
 
+  // shows left slider element
   showLeftSlide() {
     if (this.also_left_slide == true) {
       this.slide_left_stay = true;
@@ -75,10 +79,10 @@ export class VideosComponent {
   }
 
 
+  // fetches user id from LS, decodes it and logs user out
   async logout() {
     this.encodedUserId = localStorage.getItem('id');
     this.currentUserId = window.atob(this.encodedUserId);
-    // this.currentUserId = this.authservice.currentUser;
 
     try {
       let resp = await this.authservice.logout(this.currentUserId);
@@ -93,6 +97,7 @@ export class VideosComponent {
   }
 
 
+  // slides video-carousel to the right (first element of array at end of array)
   slideRight() {
     this.also_left_slide = true;
     this.slide_left = true;
@@ -116,11 +121,11 @@ export class VideosComponent {
   }
 
 
+  // slides video-carousel to the left (last element of array pops)
   slideLeft() {
     if (this.currentIndex != 0) {
       this.currentIndex--;
       this.videos.pop();
-      // this.videos.splice(-1);
     }
 
     if (this.currentIndex == 0) {
@@ -132,11 +137,13 @@ export class VideosComponent {
   }
 
 
+  // closes video popup
   closeVideoPopup($event) {
     this.videoDetailPopup = ($event);
   }
 
 
+  // opens video popup
   openVideoPopup(videoId) {
     this.videoDetailPopup = true;
     this.showFooter = false;

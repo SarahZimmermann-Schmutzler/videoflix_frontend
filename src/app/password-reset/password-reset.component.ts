@@ -32,6 +32,7 @@ export class PasswordResetComponent {
   }
 
 
+  // watches form and enables button if form is properly filled out
   watchForm() {
     setInterval(() => {
       if (
@@ -48,6 +49,9 @@ export class PasswordResetComponent {
   }
 
 
+  // decodes pk from url
+  // resets password
+  // navigates user to login page
   async resetPassword() {
     this.encoded_pk = this.route.snapshot.paramMap.get('encoded_pk');
     this.decoded_pk = atob(this.encoded_pk);
@@ -66,12 +70,14 @@ export class PasswordResetComponent {
     }
   }
 
-
+  
+  // navigates user to login page
   goToLogin() {
     this.router.navigateByUrl('/login')
   }
 
 
+  // changes border-color from password field in form when password is appropriate
   changeBorderColorPwdOne(event) {
     if (event.isTrusted == true) {
       this.redPwdOneBorder = true;
@@ -87,6 +93,7 @@ export class PasswordResetComponent {
   }
 
   
+  // changes border-color from password field in form when password is same as password one
   changeBorderColorPwdTwo(event) {
     if (this.passwordTwo === this.passwordOne && this.passwordTwo.length > 7) {
       this.redPwdTwoBorder = false;

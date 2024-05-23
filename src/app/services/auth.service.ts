@@ -11,8 +11,6 @@ export class AuthService {
   constructor(private http: HttpClient, ) { }
   // http Client wird erst geladen, wenn wir ihn brauchen
 
-  // public currentUser: string;
-  // public currentToken: string;
 
   public loginWithUserAndPassword(username:string, password:string) {
     const url = environment.baseURL + '';
@@ -44,6 +42,7 @@ export class AuthService {
     }
     return lastValueFrom(this.http.patch(url, body));
   }
+  
 
   public forgottenPassword(email:string) {
     const url = environment.baseURL + '/forgotten_password/';
@@ -52,6 +51,7 @@ export class AuthService {
     }
     return lastValueFrom(this.http.post(url, body));
   }
+
 
   public passwordReset(decoded_pk, new_password) {
     const url = environment.baseURL+ '/reset_password/';

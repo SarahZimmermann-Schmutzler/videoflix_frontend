@@ -16,8 +16,7 @@ export class ForgottenPasswordComponent {
   success = false;
 
   constructor(
-    public authservice: AuthService,
-    private router: Router,) { }
+    public authservice: AuthService) { }
   
     
     ngOnInit() {
@@ -25,6 +24,7 @@ export class ForgottenPasswordComponent {
   } 
 
 
+  // watches form and enables button if form is properly filled out
   watchForm() {
     setInterval(() => {
       if (this.normalMailBorder == true && this.redMailBorder == false) {
@@ -36,6 +36,7 @@ export class ForgottenPasswordComponent {
   }
 
 
+  // sends Mail with Link to reset password site
   async sendMail() {
     try{
       let resp: any = await this.authservice.forgottenPassword(this.email)
@@ -46,6 +47,7 @@ export class ForgottenPasswordComponent {
   }
 
 
+  // changes border-color from mail field in form when email-adress is appropriate
   changeBorderColorMail(event) {
     if (event.isTrusted == true) {
       this.redMailBorder = true;

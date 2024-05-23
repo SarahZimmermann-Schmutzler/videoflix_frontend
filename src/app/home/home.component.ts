@@ -17,11 +17,10 @@ export class HomeComponent {
   constructor(private router: Router, private service: HomeService) { }
 
 
-  ngOnInit() {
-    
-  }
+  ngOnInit() {}
 
 
+  // changes border-color from mail field in form when email-adress is appropriate
   changeBorderColor(event) {
     if(event.isTrusted == true) {
       this.redBorder = true;
@@ -39,6 +38,7 @@ export class HomeComponent {
   }
 
 
+  // navigates user to the register site; saves mail adress in variable
   toRegister() {
     this.service.registerMail = this.email;
     this.router.navigateByUrl('/register');

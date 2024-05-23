@@ -38,7 +38,10 @@ export class LoginComponent {
     this.getUserDataFromLS();
   }
 
-
+  // generates username from mailadress
+  // sends userdata to backend
+  // creates token and saves it in localStorage
+  // navigates to video-page
   async login() {
     let partBeforeAt = this.email.split('@');
     this.username = partBeforeAt[0];
@@ -57,6 +60,7 @@ export class LoginComponent {
   }
 
 
+  // watches form and enables button if form is properly filled out
   watchForm() {
     setInterval(() => {
       if (this.normalMailBorder == true && this.normalPwdBorder == true && this.redMailBorder == false && this.redPwdBorder == false || this.remember == true) {
@@ -68,6 +72,7 @@ export class LoginComponent {
   }
 
 
+  // changes border-color from mail field in form when email-adress is appropriate
   changeBorderColorMail(event) {
     if (event.isTrusted == true) {
       this.redMailBorder = true;
@@ -83,6 +88,7 @@ export class LoginComponent {
   }
 
 
+  // changes border-color from password field in form when password is appropriate
   changeBorderColorPwd(event) {
     if (event.isTrusted == true) {
       this.redPwdBorder = true;
@@ -98,6 +104,8 @@ export class LoginComponent {
   }
 
 
+  // saves the userdata in local storage when clicked
+  // deletes them when not clicked
   rememberMe(event) {
     if(event.target.checked == true && this.email != '' && this.password != '') {
       let encodedMail = window.btoa(this.email);
@@ -112,7 +120,8 @@ export class LoginComponent {
     }
   }
 
-  
+
+  // fetches userdata from LS if there is one, decodes it and fills out login form
   getUserDataFromLS(){
     this.decodeUserData();
     this.fillInUserData();

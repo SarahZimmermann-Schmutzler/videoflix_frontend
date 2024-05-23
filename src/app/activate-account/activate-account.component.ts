@@ -19,7 +19,8 @@ export class ActivateAccountComponent {
     this.setUserActive();
   }
 
-
+  
+  // unlocks user-profil --> user gets the activated status 
   async setUserActive() {
     this.encoded_pk = this.route.snapshot.paramMap.get('encoded_pk');
     this.decoded_pk = atob(this.encoded_pk)
@@ -35,6 +36,7 @@ export class ActivateAccountComponent {
   }
 
 
+  // user is navigated to login page
   goToLogin() {
     this.router.navigateByUrl('/login')
   }

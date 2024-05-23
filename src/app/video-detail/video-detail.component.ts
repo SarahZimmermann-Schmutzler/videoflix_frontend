@@ -29,6 +29,7 @@ export class VideoDetailComponent {
   }
 
 
+  // loads clickes video (480p) from backend
   async loadVideo() {
     this.videoId = this.videoService.videoId;
     this.currentVideo = await this.videoService.loadCurrentVideo(this.videoId);
@@ -36,6 +37,7 @@ export class VideoDetailComponent {
   }
 
 
+  // loads video in diffrent resolutions
   clickVideo(resolution, c1080, c720, c480) {
     this.clicked1080 = c1080;
     this.clicked720 = c720;

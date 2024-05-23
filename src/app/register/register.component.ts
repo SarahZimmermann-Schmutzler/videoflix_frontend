@@ -43,6 +43,7 @@ export class RegisterComponent {
   }
 
 
+  // changes border-color from mail/password field in form when they are appropriate
   changeBorderColor(event) {
     if (event.isTrusted == true) {
       this.redMailBorder = true;
