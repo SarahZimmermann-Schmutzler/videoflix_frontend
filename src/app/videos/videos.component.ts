@@ -2,7 +2,6 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from '../services/auth.service';
 import { VideoService } from '../services/video.service';
-import { environment } from 'src/environments/environment.development';
 
 @Component({
   selector: 'app-videos',
@@ -30,7 +29,6 @@ export class VideosComponent {
   showFooter = true;
   localServer = 'http://127.0.0.1:8000';
   googleVM = 'https://backend.s-zimmermann-schmutzler.de/videoflix';
-  baseUrl;
 
   constructor(
     public router: Router,
