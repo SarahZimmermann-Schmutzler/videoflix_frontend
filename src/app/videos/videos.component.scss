@@ -125,7 +125,6 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    
     width: 30px;
     height: 30px;
     background-color: white;
@@ -151,6 +150,12 @@
     justify-content: center;
     align-items: center;
     z-index: 5;
+
+    @media(max-width: 949px) {
+        top: 60px;
+        right:30px;
+        width: 150px;
+    }
 
     div {
         cursor: pointer;
