@@ -12,7 +12,7 @@ export class VideoDetailComponent {
   currentVideo: any = '';
   videoId = '';
   localServer = 'http://127.0.0.1:8000';
-  googleVM = 'https://backend.s-zimmermann-schmutzler.de/videoflix';
+  googleVM = 'https://backend.s-zimmermann-schmutzler.de';
   clicked1080 = false;
   clicked720 = false;
   clicked480 = true;
@@ -44,7 +44,7 @@ export class VideoDetailComponent {
     this.clicked480 = c480;
     let currentVideoFilePath = this.currentVideo.video_file;
     let renamedPath = currentVideoFilePath.replace(this.mp4, resolution);
-    this.videoSource = this.localServer + renamedPath + this.mp4;
+    this.videoSource = this.googleVM + renamedPath + this.mp4;
   }
 
 

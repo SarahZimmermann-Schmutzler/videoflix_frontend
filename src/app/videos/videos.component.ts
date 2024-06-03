@@ -28,7 +28,7 @@ export class VideosComponent {
   videoDetailPopup = false;
   showFooter = true;
   localServer = 'http://127.0.0.1:8000';
-  googleVM = 'https://backend.s-zimmermann-schmutzler.de/videoflix';
+  googleVM = 'https://backend.s-zimmermann-schmutzler.de';
 
   constructor(
     public router: Router,
