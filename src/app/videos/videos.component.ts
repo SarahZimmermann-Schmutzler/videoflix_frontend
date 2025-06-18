@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from '../services/auth.service';
 import { VideoService } from '../services/video.service';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-videos',
@@ -28,7 +29,8 @@ export class VideosComponent {
   videoDetailPopup = false;
   showFooter = true;
   localServer = 'http://127.0.0.1:8000';
-  googleVM = 'https://backend.s-zimmermann-schmutzler.de';
+  remoteServer = environment.baseURL;
+  //googleVM = 'https://backend.s-zimmermann-schmutzler.de';
 
   constructor(
     public router: Router,

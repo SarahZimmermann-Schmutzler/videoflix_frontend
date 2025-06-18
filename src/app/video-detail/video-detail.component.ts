@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Output } from '@angular/core';
 import { VideoService } from '../services/video.service';
+import {environment} from 'src/environments/environment';
 
 @Component({
   selector: 'app-video-detail',
@@ -12,7 +13,8 @@ export class VideoDetailComponent {
   currentVideo: any = '';
   videoId = '';
   localServer = 'http://127.0.0.1:8000';
-  googleVM = 'https://backend.s-zimmermann-schmutzler.de';
+  //googleVM = 'https://backend.s-zimmermann-schmutzler.de';
+  remoteServer = environment.baseURL;
   clicked1080 = false;
   clicked720 = false;
   clicked480 = true;
@@ -44,7 +46,7 @@ export class VideoDetailComponent {
     this.clicked480 = c480;
     let currentVideoFilePath = this.currentVideo.video_file;
     let renamedPath = currentVideoFilePath.replace(this.mp4, resolution);
-    this.videoSource = this.googleVM + renamedPath + this.mp4;
+    this.videoSource = this.remoteServer + renamedPath + this.mp4;
   }
 
 
