@@ -1,6 +1,7 @@
 export const environment = {
     production: false,
-    baseURL:'https://backend.s-zimmermann-schmutzler.de',
+    // baseURL:'https://backend.s-zimmermann-schmutzler.de',
+    baseURL:'http://49.12.234.250:6262',
 };
 
-// Veröffentlichungsmodus; wird bei ng-build-prozess eingefügt 
+// production mode (hosting server) 
