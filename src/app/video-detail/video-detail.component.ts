@@ -15,6 +15,7 @@ export class VideoDetailComponent {
   localServer = 'http://127.0.0.1:8000';
   //googleVM = 'https://backend.s-zimmermann-schmutzler.de';
   remoteServer = environment.baseURL;
+  //remoteServer = 'http://49.12.234.250:6262';
   clicked1080 = false;
   clicked720 = false;
   clicked480 = true;

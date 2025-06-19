@@ -30,6 +30,7 @@ export class VideosComponent {
   showFooter = true;
   localServer = 'http://127.0.0.1:8000';
   remoteServer = environment.baseURL;
+  //remoteServer = 'http://49.12.234.250:6262';
   //googleVM = 'https://backend.s-zimmermann-schmutzler.de';
 
   constructor(
