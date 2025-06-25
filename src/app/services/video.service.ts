@@ -15,13 +15,15 @@ export class VideoService {
 
 
   loadVideos() {
-    const url = environment.baseURL + '/api/videos/';
+    //const url = environment.baseURL + '/api/videos/';
+    const url = environment.baseURL + '/videos/';
     return lastValueFrom(this.http.get(url));
   }
 
 
   loadCurrentVideo(videoId) {
-    const url = `${environment.baseURL}/api/videos/${videoId}/`;
+    //const url = `${environment.baseURL}/api/videos/${videoId}/`;
+    const url = `${environment.baseURL}/videos/${videoId}/`;
     return lastValueFrom(this.http.get(url));
   }
 }

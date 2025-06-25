@@ -13,7 +13,8 @@ export class AuthService {
 
 
   public loginWithUserAndPassword(username:string, password:string) {
-    const url = environment.baseURL + '';
+    //const url = environment.baseURL + '';
+    const url = environment.baseURL + '/login/';
     // URL des Backends
     const body = {
       'username': username,
