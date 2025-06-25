@@ -30,7 +30,7 @@ export class VideosComponent {
   showFooter = true;
   localServer = 'http://127.0.0.1:8000';
   //remoteServer = environment.baseURL;
-  remoteServer = '/media';
+  remoteServer = '';
 
   constructor(
     public router: Router,
