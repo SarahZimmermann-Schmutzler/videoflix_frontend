@@ -13,7 +13,8 @@ export class VideoDetailComponent {
   currentVideo: any = '';
   videoId = '';
   localServer = 'http://127.0.0.1:8000';
-  remoteServer = environment.baseURL;
+  //remoteServer = environment.baseURL;
+  remoteServer = '/media';
   clicked1080 = false;
   clicked720 = false;
   clicked480 = true;
